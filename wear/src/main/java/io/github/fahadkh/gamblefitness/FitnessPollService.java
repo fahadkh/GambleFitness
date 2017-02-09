@@ -31,7 +31,7 @@ public class FitnessPollService extends Service implements SensorEventListener{
         Log.v(TAG, "Service started");
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        mHeart = sensorManager.getDefaultSensor(Sensor.TYPE_HEART_RATE);
+        mHeart = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorManager.registerListener(this, mHeart,
                 SensorManager.SENSOR_DELAY_NORMAL);
 
@@ -47,8 +47,15 @@ public class FitnessPollService extends Service implements SensorEventListener{
     public void onSensorChanged(SensorEvent event) {
         // grab the values and timestamp -- off the main thread
         new SensorEventLoggerTask().execute(event);
+        Log.v(TAG, "Logging Sensor Change");
         // stop the service
-        stopSelf();
+        this.stopSelf();
+    }
+
+    @Override
+    public void onDestroy() {
+        sensorManager.unregisterListener(this, mHeart);
+        super.onDestroy();
     }
 
     private class SensorEventLoggerTask extends
@@ -58,7 +65,7 @@ public class FitnessPollService extends Service implements SensorEventListener{
             SensorEvent event = events[0];
             // log the value
 
-            Log.v(TAG, event.toString());
+            Log.v(TAG, event.toString() + event.values.toString());
 
             return null;
         }
