@@ -9,6 +9,11 @@
     android:layout_marginRight="20dp"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="@string/choose_goal" />
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,10 +22,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/choose_goal" />
+
 
     <Spinner
         android:id="@+id/goal_spinner"
@@ -34,27 +36,23 @@
             android:text="@string/minutes" />
     </LinearLayout>
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="fill_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:text="@string/reveal_daily" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/reveal_daily" />
+
+
 
 
         <TextView
             android:id="@+id/daily_goal"
-            android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/daily_minutes" />
-    </LinearLayout>
+
 
     <TextView
         android:layout_marginTop="50dp"

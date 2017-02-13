@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
                 goal = (Integer) parent.getItemAtPosition(position);
                 String goal_string = Integer.toString(goal/7);
                 TextView myAwesomeTextView = (TextView)findViewById(R.id.daily_goal);
-                myAwesomeTextView.setText(goal_string);
+                myAwesomeTextView.setText(goal_string + " min");
 
             }
 
