@@ -3,6 +3,11 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="choose_goal">Choose your Weekly Activity Goal:</string>
+    <string name="reveal_daily">This is your daily activity goal:</string>
+    <string name="daily_minutes"></string>
+    <string name="next">Next</string>
     <string name="action_settings">Settings</string>
+    <string name="checkin">Checkin back at FitGame at 10pm every day to evaluate your activity and win rewards!</string>
+    <string name="minutes">min</string>
 </resources>
