@@ -1,6 +1,7 @@
 package io.github.fahadkh.gamblefitness;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -22,7 +24,9 @@ import java.lang.reflect.Field;
 
 public class MainActivity extends Activity {
     private Spinner mspin;
-    private Integer goal;
+    private int weekly_goal;
+    private int daily_goal;
+    public final static String DAILY_GOAL_NUM = "com.example.GambleFitness.DAILY_GOAL_NUM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +59,9 @@ public class MainActivity extends Activity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                goal = (Integer) parent.getItemAtPosition(position);
-                String goal_string = Integer.toString(goal/7);
+                weekly_goal = (int) parent.getItemAtPosition(position);
+                daily_goal = (int) parent.getItemAtPosition(position) / 7;
+                String goal_string = Integer.toString(daily_goal);
                 TextView myAwesomeTextView = (TextView)findViewById(R.id.daily_goal);
                 myAwesomeTextView.setText(goal_string + " min");
 
@@ -72,5 +77,10 @@ public class MainActivity extends Activity {
 
     }
 
+    public void gotoDaily(View view) {
+        Intent intent = new Intent(this, DailyGoal.class);
+        intent.putExtra(DAILY_GOAL_NUM, daily_goal);
+        startActivity(intent);
+    }
 }
 
