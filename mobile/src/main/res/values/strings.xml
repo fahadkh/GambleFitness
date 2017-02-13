@@ -13,4 +13,8 @@
     <string name="minutes">min</string>
     <string name="acticoins">20 ActiCoins</string>
     <string name="progress_message">If you hit your goal today, you can earn 10 ActiCoins!</string>
+    <string name="welcome">Welcome Back!</string>
+    <string name="MVPA_Prompt">How much activity do you think you did today?</string>
+    <string name="guess2">Guess!</string>
+    <string name="guess">Guess correctly and win 10 more ActiCoins!</string>
 </resources>

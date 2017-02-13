@@ -49,6 +49,15 @@
         android:gravity="center"
         android:text="@string/progress_message" />
 
+    <Button
+        android:id="@+id/next"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:onClick="gotoGame" />
+
+
 </LinearLayout>
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package io.github.fahadkh.gamblefitness;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -19,5 +20,10 @@ public class DailyGoal extends AppCompatActivity {
         TextView myAwesomeTextView = (TextView)findViewById(R.id.goal_today);
         myAwesomeTextView.setText(goal_string + " min");
 
+    }
+
+    public void gotoGame(View view) {
+        Intent intent = new Intent(this, GamePage.class);
+        startActivity(intent);
     }
 }

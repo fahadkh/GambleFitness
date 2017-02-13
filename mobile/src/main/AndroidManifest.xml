@@ -27,7 +27,8 @@
             android:name=".FitnessPollService"
             android:exported="false" />
 
-        <activity android:name=".DailyGoal"></activity>
+        <activity android:name=".DailyGoal" />
+        <activity android:name=".GamePage"></activity>
     </application>
 
 </manifest>
