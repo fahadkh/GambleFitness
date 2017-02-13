@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f21c57594a4af5d8ac7e0246936c13905997694f">
+        sha1="b544000ae6a1a7869b283052275a4ca313503014">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_e319edfa2e39babbbf844acd6bc7a4f0352c1783\classes.dex" />
     </item>
     <item
@@ -358,7 +358,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="932ec81fd613a8460db5ee731fe0327b594962d4">
+        sha1="1c34cb509d863256841bf1ad7a0cb276caa05ecc">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_880b2880d09ac399361f2189cfc2b94c4e5ef3c5\classes.dex" />
     </item>
     <item

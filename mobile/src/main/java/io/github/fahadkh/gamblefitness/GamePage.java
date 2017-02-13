@@ -12,7 +12,8 @@ import android.widget.TextView;
 import java.lang.reflect.Field;
 
 public class GamePage extends AppCompatActivity {
-
+    public final static String USER_SELECT = "com.example.GambleFitness.USER_SELECT";
+    String user_selection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,7 @@ public class GamePage extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                user_selection = (String) parent.getItemAtPosition(position);
             }
 
             @Override
@@ -60,5 +61,11 @@ public class GamePage extends AppCompatActivity {
             }
 
         });
+    }
+
+    public void gotoReveal(View view) {
+        Intent intent = new Intent(this, Reveal.class);
+        intent.putExtra(USER_SELECT, user_selection);
+        startActivity(intent);
     }
 }

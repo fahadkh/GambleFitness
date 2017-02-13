@@ -28,7 +28,8 @@
             android:exported="false" />
 
         <activity android:name=".DailyGoal" />
-        <activity android:name=".GamePage"></activity>
+        <activity android:name=".GamePage" />
+        <activity android:name=".Reveal"></activity>
     </application>
 
 </manifest>
