@@ -29,7 +29,9 @@
 
         <activity android:name=".DailyGoal" />
         <activity android:name=".GamePage" />
-        <activity android:name=".Reveal"></activity>
+        <activity android:name=".Reveal" />
+        <activity android:name=".Gamble" />
+        <activity android:name=".NightHold"></activity>
     </application>
 
 </manifest>

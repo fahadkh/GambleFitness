@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-10.0.1_613209cf8a0e250b6086bac137ea25c6aeeacf2e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -21,6 +30,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-10.0.1_78699a868f4fadea8d6be55ec5ccce7e2b361000\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -30,12 +48,75 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bee688e9b7e39c2f2109cf6cb5b27244cdacc31">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_880b2880d09ac399361f2189cfc2b94c4e5ef3c5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_76101f9ff89db36d38929cf75d92f4b7f0976e05\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-appindexing-10.0.1_2bf8e63c3737b3ea2247420b1f5c25fba7586868\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-10.0.1_c3ef24feed6f3f5d8434810976277b6d6029a073\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_c28e3077af978bfef25f2cd865d25cec2c899cbb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="df1cb17511aabbb63264a0024949d1e42502a512">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-10.0.1_5df4d83bc9c3b2fad8537a2ad9034ebaf9d3b664\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-config\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="ffc15e965a9e8c28f24455eedd4cac215c45d1fc">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-10.0.1_d08019ca6b2cec158f78ed8abca0f54d9cd54dd0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f6cf557be4dbd0282ea2388633e5378634423226">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-10.0.1_2efacad6a13a754a5dccd4850199e6c6f26cef38\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -66,12 +147,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_fa608e601d8724b96dccc2503e006598727ead32\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-10.0.1_452a602bd4e4ef4f58eb9e8b58691baaa24dbb24\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_a01a29310a010b2994a6e5d52d7139fc8d6eff3f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -93,12 +192,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_b2b9327e450cb50378e700e14788fa397d38453b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.google.android.support\wearable\2.0.0-beta1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="ac293d0ffbcbf7333f3a88268b702a33e5c7d2e8">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.support-wearable-2.0.0-beta1_8d258d3dd7821e9498d68459690e2927055cd66c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_ef4520555e326cba08c955e3f3ebab6201ff9d56\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_29a6754006bdcc7a5e308ca23afe69e411cfe500\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -111,12 +237,48 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_9d2179b332984be62ab18b16345c0ac8f7134d51\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="45305e6af414dab5aba6c3225081c2f15c3bdd1e">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-10.0.1_3a5186e324b0a861ee86d32f9bbbaed6e5f6c2cd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.1_54485d244d9a1436c99206fa724dc0316e1978bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f23ad0f8e58713ff4b55f61c0bbde3830378347c">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_e74f17256a61e3472769f1ee04a46d65de6fd88e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_93f2813de670a5cde8e27a97a77882997410f985\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -129,6 +291,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_562f79e9439e79e17cb37904167984e658f77733\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_48fe317703f092607386e68d678610d4191576fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
         jumboMode="true"
         optimize="true"
@@ -138,12 +318,57 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-10.0.1_325a8f0bec8ddd24cac028c7d6ca2a0341528dc7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_88f5266ab57ea32fb4d5ed9e76bb515b87e53cfb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.0.1_e9f8101aba51b6cba157bcae26edc2eb0400e6b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.0.1_041095b5b601036a93e51983799e556daa17a08b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_cc0b5846f4df081e4bf038597770d804c3e174dc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_5aa16ac16f88a189b4dc7cb6200044e3462b5a59\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -174,6 +399,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-10.0.1_630d19c14de084b654ac1ed9d34c779bf0e76aa9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-10.0.1_6187437422faba8418ba0fc905318318c4920cc4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -183,12 +426,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_6b5018a3a7a71a0227dd49baa26ec739be4f8c1c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_d24b9860cc0dd6d9a5ca35eea1ea7e1782ac6e93\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-10.0.1_db6875f6b5fcb7a87f996a1bec4a0fa890f39408\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_e966e7579e35e283fde7a9610b94579eec490acf\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -225,6 +495,15 @@
         revision="25.0.2"
         sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_b27d28c3b0d3a2b2b213f1446a85f3852ba9b23d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_3e10c86a7430deb0b01a5a131b52984c5c95de77\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -282,339 +561,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_45ebef037fbf10cd4bbc2ead10ab75b806d78e52\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_19d03cb75a78172f81d3daa87c70b1e402fd4849\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_907614e010fa31cb4f988d7b0656de84150104ef\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-10.0.1_356c5d9ec7384f29ef5724e4d86470927480e3cb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_39ffb224622a98821cbfa5a6e042b0ecd3feb5ab\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_b3972a5e5f898f7a8645c059b168a14950aba30e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-10.0.1_613209cf8a0e250b6086bac137ea25c6aeeacf2e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-10.0.1_78699a868f4fadea8d6be55ec5ccce7e2b361000\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1c34cb509d863256841bf1ad7a0cb276caa05ecc">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_880b2880d09ac399361f2189cfc2b94c4e5ef3c5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_76101f9ff89db36d38929cf75d92f4b7f0976e05\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-appindexing-10.0.1_2bf8e63c3737b3ea2247420b1f5c25fba7586868\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-10.0.1_c3ef24feed6f3f5d8434810976277b6d6029a073\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_c28e3077af978bfef25f2cd865d25cec2c899cbb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="df1cb17511aabbb63264a0024949d1e42502a512">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-10.0.1_5df4d83bc9c3b2fad8537a2ad9034ebaf9d3b664\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f6cf557be4dbd0282ea2388633e5378634423226">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-10.0.1_2efacad6a13a754a5dccd4850199e6c6f26cef38\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_fa608e601d8724b96dccc2503e006598727ead32\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_a01a29310a010b2994a6e5d52d7139fc8d6eff3f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_b2b9327e450cb50378e700e14788fa397d38453b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_ef4520555e326cba08c955e3f3ebab6201ff9d56\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_29a6754006bdcc7a5e308ca23afe69e411cfe500\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_9d2179b332984be62ab18b16345c0ac8f7134d51\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.1_54485d244d9a1436c99206fa724dc0316e1978bf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f23ad0f8e58713ff4b55f61c0bbde3830378347c">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_e74f17256a61e3472769f1ee04a46d65de6fd88e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_93f2813de670a5cde8e27a97a77882997410f985\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_562f79e9439e79e17cb37904167984e658f77733\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_48fe317703f092607386e68d678610d4191576fc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-10.0.1_325a8f0bec8ddd24cac028c7d6ca2a0341528dc7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_88f5266ab57ea32fb4d5ed9e76bb515b87e53cfb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.0.1_041095b5b601036a93e51983799e556daa17a08b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_cc0b5846f4df081e4bf038597770d804c3e174dc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_5aa16ac16f88a189b4dc7cb6200044e3462b5a59\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-10.0.1_630d19c14de084b654ac1ed9d34c779bf0e76aa9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-10.0.1_6187437422faba8418ba0fc905318318c4920cc4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_6b5018a3a7a71a0227dd49baa26ec739be4f8c1c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_d24b9860cc0dd6d9a5ca35eea1ea7e1782ac6e93\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_e966e7579e35e283fde7a9610b94579eec490acf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
-        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_3e10c86a7430deb0b01a5a131b52984c5c95de77\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -651,6 +597,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_45ebef037fbf10cd4bbc2ead10ab75b806d78e52\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -669,6 +624,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_19d03cb75a78172f81d3daa87c70b1e402fd4849\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\wear\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_907614e010fa31cb4f988d7b0656de84150104ef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -684,6 +657,33 @@
         revision="25.0.2"
         sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_7210a608f3e8426038f5f9a42d9dc7447a399398\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-10.0.1_356c5d9ec7384f29ef5724e4d86470927480e3cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_39ffb224622a98821cbfa5a6e042b0ecd3feb5ab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_b3972a5e5f898f7a8645c059b168a14950aba30e\classes.dex" />
     </item>
     <item
         is-multidex="true"

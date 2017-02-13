@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -68,5 +69,10 @@ public class Reveal extends AppCompatActivity {
                 }
             }
         }).start();
+    }
+
+    public void gotoSetTmrw(View view) {
+        Intent intent = new Intent(this, Gamble.class);
+        startActivity(intent);
     }
 }
