@@ -15,8 +15,8 @@
         android:src="@drawable/logo"
         android:layout_marginTop="40dp"
         android:adjustViewBounds="true"
-        android:maxWidth="300dp"
-        android:maxHeight="300dp"
+        android:maxWidth="280dp"
+        android:maxHeight="280dp"
         android:scaleType="fitCenter"
         android:layout_centerHorizontal="true"
         />
@@ -24,11 +24,11 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:textSize="36dp"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:gravity="center_horizontal"
-        android:text="FitGame"
+        android:text="GambleFit"
         android:id="@+id/textView" />
 
 </LinearLayout>

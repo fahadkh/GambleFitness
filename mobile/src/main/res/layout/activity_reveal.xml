@@ -11,6 +11,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
+        android:id = "@id/acti_coins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
@@ -26,12 +27,24 @@
     android:layout_marginTop="20dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <TextView
+        android:id= "@id/daily_goal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=  "@string/daily_minutes"
+        android:textSize="20dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:text="Your Activity Today"
-        android:textSize="25dp"/>
-
+        android:textSize="20dp"/>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_centerInParent="true"
@@ -59,19 +72,15 @@
 
     <TextView
         android:id= "@+id/user_selection"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text= "@string/daily_minutes"
-        android:textSize="25dp"/>
+        android:textSize="20dp"/>
 
-    <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text= "Good Job! You earned 10 ActiCoins!"
-        android:textSize="25dp"/>
 
     <Button
         android:id="@+id/settmrw"

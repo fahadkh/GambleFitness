@@ -3,6 +3,7 @@ package io.github.fahadkh.gamblefitness;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,6 +22,24 @@ public class Gamble extends AppCompatActivity {
         setContentView(R.layout.activity_gamble);
 
         Intent intent = getIntent();
+        final SessionManager session = new SessionManager(getApplicationContext());
+        TextView tomorrow_goal = (TextView) findViewById(R.id.tomorrowgoal);
+
+        //TODO: Get actual MVPA
+        int actualMVPA = 20;
+        final double daily_goal_from_ytday = (double)session.getDailyGoal();
+        final double daily_goal_from_start = (double) (session.getWeeklyGoal()/7);
+        final double daily_goal_set;
+
+        if (actualMVPA  < daily_goal_from_ytday){
+            tomorrow_goal.setText((int)daily_goal_from_start + " min");
+            daily_goal_set = daily_goal_from_start;
+        }
+        else {
+            tomorrow_goal.setText((int)daily_goal_from_ytday + " min");
+            daily_goal_set = daily_goal_from_ytday;
+        }
+
 
         newgoal_spin = (Spinner) findViewById(R.id.gamble_spinner);
         Integer[] items = new Integer[120];
@@ -48,12 +67,34 @@ public class Gamble extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                double gamblegoal = (double)(int)parent.getItemAtPosition(position);
+                int wager;
 
+                if (gamblegoal == daily_goal_set){
+                    wager = 10;
+                }
+                else if (gamblegoal > daily_goal_from_ytday){
+
+                     wager = (int)(10+ (((gamblegoal - daily_goal_from_start)/daily_goal_from_start) * 10)
+                            + (((gamblegoal - daily_goal_from_ytday)/daily_goal_from_ytday) * 5));
+                }
+                else if (gamblegoal > daily_goal_from_start){
+                     wager = (int)((((gamblegoal - daily_goal_from_start)/daily_goal_from_start) * 10) + 10);
+                }
+                else{
+                     wager = (int)(10 -(((daily_goal_from_ytday-gamblegoal)/daily_goal_from_ytday) * 10));
+                }
+
+                session.setDailyGoal((int)gamblegoal);
+                session.setWager(wager);
+
+                TextView wagertext = (TextView) findViewById(R.id.wager);
+                wagertext.setText(wager + " Acticoins");
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
+
 
             }
 
@@ -63,6 +104,25 @@ public class Gamble extends AppCompatActivity {
 
 
     public void gotoNightHolding(View view) {
+        Intent intent;
+        intent = new Intent(this, NightMode.class);
+        final SessionManager session = new SessionManager(getApplicationContext());
+        session.setGoalSet(true);
+        startActivity(intent);
+    }
+
+    public void gotoNightHoldingNoWager(View view){
+        Intent intent;
+        intent = new Intent(this, NightMode.class);
+        final SessionManager session = new SessionManager(getApplicationContext());
+        session.setGoalSet(true);
+        session.setWager(10);
+        startActivity(intent);
+    }
+
+    public void onBackPressed()
+    {
+        moveTaskToBack(true);
     }
 
     }

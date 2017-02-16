@@ -70,5 +70,10 @@ public class LoginActivity extends Activity {
             }
         });
     }
+    @Override
+    public void onBackPressed()
+    {
+        moveTaskToBack(true);
+    }
 }
 

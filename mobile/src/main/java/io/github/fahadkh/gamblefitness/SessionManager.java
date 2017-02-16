@@ -33,9 +33,17 @@ public class SessionManager {
     // All Shared Preferences Keys
     private static final String IS_LOGIN = "IsLoggedIn";
 
+    // DailyGoal
+    private static final String WEEKLY_GOAL = "weeklygoal";
+
+    private static final String DAILY_GOAL = "dailygoal";
+
     // User name (make variable public to access from outside)
     public static final String KEY_NAME = "name";
 
+    public static final String ACTICOINS = "coins";
+    public static final String WAGER = "wager";
+    public static final String GOAL_SET = "goal_set";
 
     // Constructor
     public SessionManager(Context context){
@@ -54,6 +62,10 @@ public class SessionManager {
         // Storing name in pref
         editor.putString(KEY_NAME, name);
 
+        editor.putInt(ACTICOINS, 20);
+        editor.putBoolean(GOAL_SET, true);
+
+        editor.putInt(WAGER, 10);
         // commit changes
         editor.commit();
     }
@@ -90,10 +102,50 @@ public class SessionManager {
         HashMap<String, String> user = new HashMap<String, String>();
         // user name
         user.put(KEY_NAME, pref.getString(KEY_NAME, null));
-
-
         // return user
         return user;
+    }
+
+    public int getDailyGoal(){
+        // return goal
+        return pref.getInt(DAILY_GOAL,60);
+    }
+
+    public int getWeeklyGoal(){
+        // return goal
+        return pref.getInt(WEEKLY_GOAL,240);
+    }
+
+    public int getActiCoins(){
+        // return goal
+        int n = pref.getInt(ACTICOINS,20);
+        return n;
+    }
+
+    public int getWager(){
+        // return goal
+        int n = pref.getInt(WAGER,10);
+        return n;
+    }
+
+    public boolean getGoalSet(){
+        // return goalset boolean
+        boolean bool = pref.getBoolean(GOAL_SET,false);
+        return bool;
+    }
+
+    public void addActiCoins(int number){
+        // add to current coins
+        int n = pref.getInt(ACTICOINS,20);
+        editor.putInt(ACTICOINS,n+number);
+        editor.commit();
+    }
+
+    public void minusActiCoins(int number){
+        // minus from current coins
+        int n = pref.getInt(ACTICOINS,20);
+        editor.putInt(ACTICOINS,n-number);
+        editor.commit();
     }
 
     /**
@@ -116,6 +168,24 @@ public class SessionManager {
         _context.startActivity(i);
     }
 
+    public void setDailyGoal(int goal){
+        editor.putInt(DAILY_GOAL,goal);
+        editor.commit();
+    }
+    public void setWager(int wager){
+        editor.putInt(WAGER,wager);
+        editor.commit();
+    }
+
+    public void setGoalSet(boolean bool){
+        editor.putBoolean(GOAL_SET,bool);
+        editor.commit();
+    }
+
+    public void setWeeklyGoal(int goal){
+        editor.putInt(WEEKLY_GOAL,goal);
+        editor.commit();
+    }
     /**
      * Quick check for login
      * **/

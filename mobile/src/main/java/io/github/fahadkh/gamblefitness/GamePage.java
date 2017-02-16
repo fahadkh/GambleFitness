@@ -21,6 +21,12 @@ public class GamePage extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        SessionManager session = new SessionManager(getApplicationContext());
+
+        TextView coins = (TextView)findViewById(R.id.acti_coins);
+        int n = session.getActiCoins();
+        coins.setText(n + " Acticoins");
+
         Spinner gamespin = (Spinner) findViewById(R.id.activity_guesser_spinner);
         String[] items = new String[120];
         int j = 0;
@@ -67,5 +73,10 @@ public class GamePage extends AppCompatActivity {
         Intent intent = new Intent(this, Reveal.class);
         intent.putExtra(USER_SELECT, user_selection);
         startActivity(intent);
+    }
+    @Override
+    public void onBackPressed()
+    {
+        moveTaskToBack(true);
     }
 }

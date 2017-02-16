@@ -2,7 +2,10 @@ package io.github.fahadkh.gamblefitness;
 
 import android.app.Activity;
 import android.content.Intent;
+import java.util.Calendar;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -33,6 +36,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final SessionManager session = new SessionManager(getApplicationContext());
+
         mspin = (Spinner) findViewById(R.id.goal_spinner);
         Integer[] items = new Integer[120];
         for (int i = 0; i < 120; i++) {
@@ -61,6 +66,8 @@ public class MainActivity extends Activity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 weekly_goal = (int) parent.getItemAtPosition(position);
                 daily_goal = (int) parent.getItemAtPosition(position) / 7;
+                session.setWeeklyGoal(weekly_goal);
+                session.setDailyGoal(daily_goal);
                 String goal_string = Integer.toString(daily_goal);
                 TextView myAwesomeTextView = (TextView)findViewById(R.id.daily_goal);
                 myAwesomeTextView.setText(goal_string + " min");
@@ -77,10 +84,22 @@ public class MainActivity extends Activity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void gotoDaily(View view) {
-        Intent intent = new Intent(this, DailyGoal.class);
-        intent.putExtra(DAILY_GOAL_NUM, daily_goal);
+        Intent intent;
+        //int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
+        int currentHour = 8;
+        if (currentHour > 21 || currentHour < 5){
+            intent = new Intent(this, NightMode.class);
+        }
+        else {intent = new Intent(this, DailyGoal.class);}
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        moveTaskToBack(true);
     }
 }
 
