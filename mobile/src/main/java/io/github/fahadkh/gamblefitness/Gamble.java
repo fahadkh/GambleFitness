@@ -14,6 +14,7 @@ import java.lang.reflect.Field;
 public class Gamble extends AppCompatActivity {
 
     private Spinner newgoal_spin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,7 @@ public class Gamble extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        newgoal_spin = (Spinner) findViewById(R.id.goal_spinner);
+        newgoal_spin = (Spinner) findViewById(R.id.gamble_spinner);
         Integer[] items = new Integer[120];
         for (int i = 0; i < 120; i++) {
             items[i] =(5*i);
@@ -62,7 +63,6 @@ public class Gamble extends AppCompatActivity {
 
 
     public void gotoNightHolding(View view) {
-        Intent intent = new Intent(this, NightHold.class);
-        startActivity(intent);
     }
+
     }
