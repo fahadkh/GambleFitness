@@ -92,7 +92,7 @@ public class GamePage extends AppCompatActivity
 
         apiManager = new GambleAPIManager(mApiClient, this);
         apiManager.initSubscriptions();
-        apiManager.getGoogleFitDataInBackground();
+        apiManager.pushGoogleFitDataInBackground();
     }
 
     public void gotoReveal(View view) {

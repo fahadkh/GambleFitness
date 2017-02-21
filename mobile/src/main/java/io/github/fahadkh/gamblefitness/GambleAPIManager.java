@@ -3,6 +3,16 @@ package io.github.fahadkh.gamblefitness;
 import android.app.Activity;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -36,6 +46,7 @@ import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
 import com.google.android.gms.fitness.result.ListSubscriptionsResult;
 
+import static java.text.DateFormat.getDateInstance;
 import static java.text.DateFormat.getTimeInstance;
 
 
@@ -47,6 +58,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = "GambleAPIManager";
+    private static final String BACKEND = "Backend";
     private static final int REQUEST_OAUTH = 1;
     private static final String AUTH_PENDING = "auth_state_pending";
     private static final String PERMISSIONS_RATIONALE = "Body Sensor permission is needed to run this app";
@@ -105,7 +117,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
         }
     }
 
-    private void displayLastWeeksData() {
+    private void obtainTodayData() {
 
         if (!checkPermissions()) {
             requestPermissions();
@@ -116,7 +128,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.HOUR_OF_DAY, -2);
+        cal.add(Calendar.HOUR_OF_DAY, -24);
         long startTime = cal.getTimeInMillis();
 
         java.text.DateFormat dateFormat = DateFormat.getDateInstance();
@@ -129,7 +141,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
                 .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
                 .aggregate(DataType.TYPE_BASAL_METABOLIC_RATE, DataType.AGGREGATE_BASAL_METABOLIC_RATE_SUMMARY)
                 .aggregate(DataType.TYPE_CALORIES_EXPENDED, DataType.AGGREGATE_CALORIES_EXPENDED)
-                .bucketByTime(10, TimeUnit.MINUTES)
+                .bucketByTime(5, TimeUnit.MINUTES)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
         DataReadResult dataReadResult = Fitness.HistoryApi.readData(mApiClient, dataReadRequest).await(1, TimeUnit.MINUTES);
@@ -143,7 +155,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
             for (Bucket bucket : dataReadResult.getBuckets()) {
                 List<DataSet> dataSets = bucket.getDataSets();
                 for (DataSet dataSet : dataSets) {
-                    dumpDataSet(dataSet);
+                    processDataSet(dataSet);
                 }
             }
         }
@@ -151,13 +163,13 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
         else if (dataReadResult.getDataSets().size() > 0) {
             Log.e("History", "Number of returned DataSets: " + dataReadResult.getDataSets().size());
             for (DataSet dataSet : dataReadResult.getDataSets()) {
-                dumpDataSet(dataSet);
+                processDataSet(dataSet);
 
             }
         }
     }
 
-    private static void dumpDataSet(DataSet dataSet) {
+    private static void processDataSet(DataSet dataSet) {
         Log.i(TAG, "Data returned for Data type: " + dataSet.getDataType().getName());
         DateFormat dateFormat = getTimeInstance();
 
@@ -171,19 +183,89 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
             for(Field field : dp.getDataType().getFields()) {
                 Log.i(TAG, "\tField: " + field.getName() +
                         " Value: " + dp.getValue(field));
+                uploadTableEntry(dp, field);
             }
         }
     }
 
-    private class ViewWeekStepCountTask extends AsyncTask<Void, Void, Void> {
+    private static void uploadTableEntry(DataPoint dp, Field f) {
+        try {
+
+            DateFormat timeFormat = getTimeInstance();
+            DateFormat dateFormat = getDateInstance();
+            long stTime = dp.getStartTime(TimeUnit.MILLISECONDS);
+            long endTime = dp.getEndTime(TimeUnit.MILLISECONDS);
+
+            String uid = "userId";
+            String start_time = timeFormat.format(stTime) + dateFormat.format(stTime);
+            String end_time = timeFormat.format(endTime) + dateFormat.format(endTime);;
+            String field= f.getName();
+            String value = dp.getValue(f).toString();
+
+            String data = URLEncoder.encode("uid", "UTF-8")
+                    + "=" + URLEncoder.encode(uid, "UTF-8");
+
+            data += "&" + URLEncoder.encode("start_time", "UTF-8") + "="
+                    + URLEncoder.encode(start_time, "UTF-8");
+
+            data += "&" + URLEncoder.encode("end_time", "UTF-8")
+                    + "=" + URLEncoder.encode(end_time, "UTF-8");
+
+            data += "&" + URLEncoder.encode("field", "UTF-8")
+                    + "=" + URLEncoder.encode(field, "UTF-8");
+
+            data += "&" + URLEncoder.encode("value", "UTF-8")
+                    + "=" + URLEncoder.encode(value, "UTF-8");
+
+            Log.d(BACKEND, data);
+
+            /*int dataLength = data.length();
+            String request = "http://murphy.wot.eecs.northwestern.edu/~nsc969/SQLGateway.py";
+            URL url = new URL(request);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setInstanceFollowRedirects(false);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Length", Integer.toString(dataLength));
+            conn.setUseCaches(false);
+            try (OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream())) {
+                wr.write(data);
+            }
+
+
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(
+                            conn.getInputStream()));
+            String decodedString;
+            while ((decodedString = in.readLine()) != null) {
+                Log.w(TAG, decodedString);
+            }*/
+
+        } /*catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        } */catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            /*try {
+                if (writer != null)
+                    writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }*/
+        }
+    }
+
+    private class TransferGoogleFitToBackend extends AsyncTask<Void, Void, Void> {
         protected Void doInBackground(Void... params) {
-            displayLastWeeksData();
+            obtainTodayData();
             return null;
         }
     }
 
-    protected void getGoogleFitDataInBackground() {
-        new ViewWeekStepCountTask().execute();
+    protected void pushGoogleFitDataInBackground() {
+        new TransferGoogleFitToBackend().execute();
     }
 
     @Override
