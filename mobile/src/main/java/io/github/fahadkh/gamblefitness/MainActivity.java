@@ -3,6 +3,7 @@ package io.github.fahadkh.gamblefitness;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -19,32 +20,25 @@ import android.view.MenuItem;
 
 import android.content.Intent;
 import android.content.IntentSender;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.fitness.FitnessStatusCodes;
 import com.google.android.gms.fitness.data.Bucket;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
+import com.google.android.gms.fitness.data.Subscription;
 import com.google.android.gms.fitness.request.DataReadRequest;
-import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.Scopes;
-import com.google.android.gms.common.api.ResultCallback;
 
-import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
-import com.google.android.gms.fitness.data.Value;
-import com.google.android.gms.fitness.request.DataSourcesRequest;
-import com.google.android.gms.fitness.request.OnDataPointListener;
-import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
-import com.google.android.gms.fitness.result.DataSourcesResult;
+import com.google.android.gms.fitness.result.ListSubscriptionsResult;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -68,6 +62,7 @@ public class MainActivity extends AppCompatActivity
     private GoogleApiClient mApiClient;
     private static final String TAG = "Gamble";
     private static final int REQUEST_PERMISSIONS_REQUEST_CODE = 17;
+    private ResultCallback<ListSubscriptionsResult> mListSubscriptionsResultCallback;
 
     @Override
     protected void onCreate(Bundle  savedInstanceState) {
@@ -101,12 +96,17 @@ public class MainActivity extends AppCompatActivity
 
         mApiClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.HISTORY_API)
+                .addApi(Fitness.RECORDING_API)
+                .addScope(new Scope(Scopes.FITNESS_BODY_READ_WRITE))
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
                 .addConnectionCallbacks(this)
                 .enableAutoManage(this, 0, this)
                 .build();
 
+        initSubscriptions();
     }
+
+
 
     /**
      * Return the current state of the permissions needed.
@@ -162,21 +162,26 @@ public class MainActivity extends AppCompatActivity
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.WEEK_OF_YEAR, -1);
+        cal.add(Calendar.HOUR_OF_DAY, -2);
         long startTime = cal.getTimeInMillis();
 
         java.text.DateFormat dateFormat = DateFormat.getDateInstance();
         Log.e("History", "Range Start: " + dateFormat.format(startTime));
         Log.e("History", "Range End: " + dateFormat.format(endTime));
 
-        //Check how many steps were walked and recorded in the last 7 days
-        DataReadRequest readRequest = new DataReadRequest.Builder()
+
+        DataReadRequest dataReadRequest = new DataReadRequest.Builder()
                 .aggregate(DataType.TYPE_HEART_RATE_BPM, DataType.AGGREGATE_HEART_RATE_SUMMARY)
-                .bucketByTime(1, TimeUnit.DAYS)
+                .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
+                .aggregate(DataType.TYPE_BASAL_METABOLIC_RATE, DataType.AGGREGATE_BASAL_METABOLIC_RATE_SUMMARY)
+                .aggregate(DataType.TYPE_CALORIES_EXPENDED, DataType.AGGREGATE_CALORIES_EXPENDED)
+                .bucketByTime(10, TimeUnit.MINUTES)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
+        DataReadResult dataReadResult = Fitness.HistoryApi.readData(mApiClient, dataReadRequest).await(1, TimeUnit.MINUTES);
 
-        DataReadResult dataReadResult = Fitness.HistoryApi.readData(mApiClient, readRequest).await(1, TimeUnit.MINUTES);
+
+        Log.d(TAG, dataReadResult.toString());
 
         //Used for aggregated data
         if (dataReadResult.getBuckets().size() > 0) {
@@ -262,6 +267,94 @@ public class MainActivity extends AppCompatActivity
         } else {
             Log.e("GoogleFit", "requestCode NOT request_oauth");
         }
+    }
+
+    private void initSubscriptions() {
+        mListSubscriptionsResultCallback = new ResultCallback<ListSubscriptionsResult>() {
+            @Override
+            public void onResult(@NonNull ListSubscriptionsResult listSubscriptionsResult) {
+                for (Subscription subscription : listSubscriptionsResult.getSubscriptions()) {
+                    DataType dataType = subscription.getDataType();
+                    Log.e( "RecordingAPI", dataType.getName() );
+                    for (Field field : dataType.getFields() ) {
+                        Log.e( "RecordingAPI", field.toString() );
+                    }
+                }
+            }
+        };
+
+
+        Fitness.RecordingApi.listSubscriptions(mApiClient)
+                .setResultCallback(mListSubscriptionsResultCallback);
+
+        Fitness.RecordingApi.subscribe(mApiClient, DataType.TYPE_STEP_COUNT_DELTA)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (status.isSuccess()) {
+                            if (status.getStatusCode()
+                                    == FitnessStatusCodes.SUCCESS_ALREADY_SUBSCRIBED) {
+                                Log.i(TAG, "Existing subscription for step count detected.");
+                            } else {
+                                Log.i(TAG, "Successfully subscribed to step count!");
+                            }
+                        } else {
+                            Log.i(TAG, "There was a problem subscribing to step count.");
+                        }
+                    }
+                });
+
+        Fitness.RecordingApi.subscribe(mApiClient, DataType.TYPE_HEART_RATE_BPM)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (status.isSuccess()) {
+                            if (status.getStatusCode()
+                                    == FitnessStatusCodes.SUCCESS_ALREADY_SUBSCRIBED) {
+                                Log.i(TAG, "Existing subscription for heart rate detected.");
+                            } else {
+                                Log.i(TAG, "Successfully subscribed to heart rate!");
+                            }
+                        } else {
+                            Log.i(TAG, "There was a problem subscribing to heart rate.");
+                        }
+                    }
+                });
+
+        Fitness.RecordingApi.subscribe(mApiClient, DataType.TYPE_BASAL_METABOLIC_RATE)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (status.isSuccess()) {
+                            if (status.getStatusCode()
+                                    == FitnessStatusCodes.SUCCESS_ALREADY_SUBSCRIBED) {
+                                Log.i(TAG, "Existing subscription for basal metabolic rate detected.");
+                            } else {
+                                Log.i(TAG, "Successfully subscribed to basal metabolic rate!");
+                            }
+                        } else {
+                            Log.i(TAG, "There was a problem subscribing to basal metabolic rate.");
+                        }
+                    }
+                });
+
+        Fitness.RecordingApi.subscribe(mApiClient, DataType.TYPE_CALORIES_EXPENDED)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (status.isSuccess()) {
+                            if (status.getStatusCode()
+                                    == FitnessStatusCodes.SUCCESS_ALREADY_SUBSCRIBED) {
+                                Log.i(TAG, "Existing subscription for calories expended detected.");
+                            } else {
+                                Log.i(TAG, "Successfully subscribed to calories expended!");
+                            }
+                        } else {
+                            Log.i(TAG, "There was a problem subscribing to calories expended.");
+                        }
+                    }
+                });
+
     }
 
     @Override
