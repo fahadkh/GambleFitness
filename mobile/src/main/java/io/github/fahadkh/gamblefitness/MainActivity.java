@@ -1,5 +1,7 @@
 package io.github.fahadkh.gamblefitness;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,8 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.wearable.Wearable;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle  savedInstanceState) {
@@ -40,6 +47,32 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        client = getGoogleApiClient(this);
+        Intent i = new Intent(this, ListenerService.class);
+        startService(i);
+    }
+
+    private GoogleApiClient getGoogleApiClient(Context context) {
+        return new GoogleApiClient.Builder(context)
+                .addApi(Wearable.API)
+                .build();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Check if the accelerometer was streaming before paused
+        Intent i = new Intent(this, ListenerService.class);
+        startService(i);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Check if accelerometer should be paused
+        Intent i = new Intent(this, ListenerService.class);
+        startService(i);
     }
 
     @Override

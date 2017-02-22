@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">GambleFitness</string>
-    <string name="hello_world">Hello World!</string>
+    <string name="hello_world">GambleFit Tester</string>
+    <string name="active">Logging</string>
+    <string name="inactive">Not Logging</string>
     <string name="notification_title">GambleFitness</string>
     <string name="notification_message">GambleFitness is collecting data</string>
 </resources>
