@@ -219,7 +219,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
 
             Log.d(BACKEND, data);
 
-            /*int dataLength = data.length();
+            int dataLength = data.length();
             String request = "http://murphy.wot.eecs.northwestern.edu/~nsc969/SQLGateway.py";
             URL url = new URL(request);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -241,19 +241,19 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
                 Log.w(TAG, decodedString);
             }*/
 
-        } /*catch (MalformedURLException e) {
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (ProtocolException e) {
             e.printStackTrace();
-        } */catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            /*try {
+            try {
                 if (writer != null)
                     writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            }*/
+            }
         }
     }
 
