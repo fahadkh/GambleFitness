@@ -141,7 +141,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
                 .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
                 .aggregate(DataType.TYPE_BASAL_METABOLIC_RATE, DataType.AGGREGATE_BASAL_METABOLIC_RATE_SUMMARY)
                 .aggregate(DataType.TYPE_CALORIES_EXPENDED, DataType.AGGREGATE_CALORIES_EXPENDED)
-                .bucketByTime(5, TimeUnit.MINUTES)
+                .bucketByTime(60, TimeUnit.MINUTES)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
         DataReadResult dataReadResult = Fitness.HistoryApi.readData(mApiClient, dataReadRequest).await(1, TimeUnit.MINUTES);
@@ -189,6 +189,9 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
     }
 
     private static void uploadTableEntry(DataPoint dp, Field f) {
+
+        OutputStreamWriter writer = null;
+
         try {
 
             DateFormat timeFormat = getTimeInstance();
@@ -197,9 +200,9 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
             long endTime = dp.getEndTime(TimeUnit.MILLISECONDS);
 
             String uid = "userId";
-            String start_time = timeFormat.format(stTime) + dateFormat.format(stTime);
-            String end_time = timeFormat.format(endTime) + dateFormat.format(endTime);;
-            String field= f.getName();
+            String start_time = timeFormat.format(stTime) + " " + dateFormat.format(stTime);
+            String end_time = timeFormat.format(endTime) + " " + dateFormat.format(endTime);;
+            String field = f.getName();
             String value = dp.getValue(f).toString();
 
             String data = URLEncoder.encode("uid", "UTF-8")
@@ -228,8 +231,13 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Length", Integer.toString(dataLength));
             conn.setUseCaches(false);
-            try (OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream())) {
-                wr.write(data);
+            try {
+                writer = new OutputStreamWriter(conn.getOutputStream());
+                writer.write(data);
+                writer.flush();
+            }
+            catch (Exception e) {
+                e.printStackTrace();
             }
 
 
@@ -238,8 +246,10 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
                             conn.getInputStream()));
             String decodedString;
             while ((decodedString = in.readLine()) != null) {
-                Log.w(TAG, decodedString);
-            }*/
+                Log.w("HTTP RESPONSE: ", decodedString);
+            }
+
+
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
