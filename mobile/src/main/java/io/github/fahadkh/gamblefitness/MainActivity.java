@@ -87,8 +87,8 @@ public class MainActivity extends Activity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void gotoDaily(View view) {
         Intent intent;
-        //int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        int currentHour = 8;
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
+
         if (currentHour > 21 || currentHour < 5){
             intent = new Intent(this, NightMode.class);
         }

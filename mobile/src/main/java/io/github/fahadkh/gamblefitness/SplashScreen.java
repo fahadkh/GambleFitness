@@ -29,8 +29,7 @@ public class SplashScreen extends Activity {
 
 
                 Intent i;
-                //int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-                int currentHour = 8;
+                int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
                 if(!session.isLoggedIn()){
                     i = new Intent(getApplicationContext(), LoginActivity.class);
                 }
