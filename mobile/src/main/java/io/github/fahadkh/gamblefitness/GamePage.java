@@ -90,7 +90,7 @@ public class GamePage extends AppCompatActivity
                 .enableAutoManage(this, 0, this)
                 .build();
 
-        apiManager = new GambleAPIManager(mApiClient, this);
+        apiManager = new GambleAPIManager(mApiClient, this, session.getUserDetails().get("name"));
         apiManager.initSubscriptions();
         apiManager.pushGoogleFitDataInBackground();
     }
