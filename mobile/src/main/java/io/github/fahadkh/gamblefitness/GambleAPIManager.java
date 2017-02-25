@@ -57,6 +57,8 @@ import static java.text.DateFormat.getTimeInstance;
 public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
+    private static final int BUCKET_SIZE = 240;
+    private static String uID = "Undefined";
     private static final String TAG = "GambleAPIManager";
     private static final String BACKEND = "Backend";
     private static final int REQUEST_OAUTH = 1;
@@ -69,9 +71,10 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
     private AppCompatActivity context;
     private ResultCallback<ListSubscriptionsResult> mListSubscriptionsResultCallback;
 
-    GambleAPIManager (GoogleApiClient client, AppCompatActivity c){
+    GambleAPIManager (GoogleApiClient client, AppCompatActivity c, String userID){
         mApiClient = client;
         context = c;
+        uID = userID;
     }
 
     /**
@@ -141,7 +144,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
                 .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
                 .aggregate(DataType.TYPE_BASAL_METABOLIC_RATE, DataType.AGGREGATE_BASAL_METABOLIC_RATE_SUMMARY)
                 .aggregate(DataType.TYPE_CALORIES_EXPENDED, DataType.AGGREGATE_CALORIES_EXPENDED)
-                .bucketByTime(60, TimeUnit.MINUTES)
+                .bucketByTime(BUCKET_SIZE, TimeUnit.MINUTES)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
         DataReadResult dataReadResult = Fitness.HistoryApi.readData(mApiClient, dataReadRequest).await(1, TimeUnit.MINUTES);
@@ -199,7 +202,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
             long stTime = dp.getStartTime(TimeUnit.MILLISECONDS);
             long endTime = dp.getEndTime(TimeUnit.MILLISECONDS);
 
-            String uid = "userId";
+            String uid = uID;
             String start_time = timeFormat.format(stTime) + " " + dateFormat.format(stTime);
             String end_time = timeFormat.format(endTime) + " " + dateFormat.format(endTime);;
             String field = f.getName();

@@ -1,20 +1,58 @@
 package io.github.fahadkh.gamblefitness;
 
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.gms.fitness.data.DataPoint;
+import com.google.android.gms.fitness.data.Field;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.util.concurrent.TimeUnit;
+
+import static java.text.DateFormat.getDateInstance;
+import static java.text.DateFormat.getTimeInstance;
 
 public class Reveal extends AppCompatActivity {
+    private static final String TAG = "MVPA Request";
     int pStatus = 0;
     private Handler handler = new Handler();
+
+    //SessionManager session = new SessionManager(getApplicationContext());
     TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +60,68 @@ public class Reveal extends AppCompatActivity {
         setContentView(R.layout.activity_reveal);
 
         SessionManager session = new SessionManager(getApplicationContext());
+
+        String uid = session.getUserDetails().get("name");
+        String url = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py?mode=api&request=mvpa&uid=" + uid;
+
+        generateMVPA(url);
+
+    }
+
+    public void generateMVPA(final String url) {
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+                        Log.v(TAG, "Reponse: " + response);
+                        JSONObject resp;
+                        int mvpa = -1;
+                        try {
+                            resp = new JSONObject(response);
+                            mvpa = resp.getInt("mvpa");
+                            Log.v(TAG, Integer.toString(mvpa));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        if (mvpa == -1){
+                            generateMVPA(url);
+                            Log.e(TAG, "Query error");
+                        }
+                        else {
+                            setMVPA(mvpa);
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Error: " + error.getMessage());
+            }
+        });
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+    }
+
+        //new mvpaRetrieve().execute(uid);
+
+        //while (!mvpaFlag){}
+    public void setMVPA(final int actualMVPA) {
+        SessionManager session = new SessionManager(getApplicationContext());
         int wager = session.getWager();
         int daily_goal = session.getDailyGoal();
 
-        TextView goalline = (TextView)findViewById(R.id.daily_goal);
-        goalline.setText("Your goal for today was " + daily_goal + " min." );
+        TextView goalline = (TextView) findViewById(R.id.daily_goal);
+        goalline.setText("Your goal for today was " + daily_goal + " min.");
 
         Intent intent = getIntent();
         String user_selection = intent.getStringExtra(GamePage.USER_SELECT);
-
-        //TODO: Input actual MVPA calculated from day
-
-        final int actualMVPA = 20; // to be changed
 
         String[] nums = user_selection.split(" - ");
         int num1 = Integer.parseInt(nums[0]);
@@ -112,6 +200,86 @@ public class Reveal extends AppCompatActivity {
             }
         }).start();
     }
+
+    /*
+    class mvpaRetrieve extends AsyncTask<String, Void, Void> {
+
+        private Exception exception;
+
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        protected Void doInBackground(String... uid) {
+
+            String url = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py";
+            actualMVPA = getMVPA(url, uid[0]);
+            mvpaFlag = true;
+            return null;
+
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        public int getMVPA(String urlString, String uid) {
+            //Send GET request
+            int mvpa = 10;
+            String text;
+            try {
+
+                text = URLEncoder.encode("mode", "UTF-8")
+                        + "=" + URLEncoder.encode("api", "UTF-8");
+                text += "&" + URLEncoder.encode("uid", "UTF-8") + "="
+                        + URLEncoder.encode(uid, "UTF-8");
+                text += "&" + URLEncoder.encode("request", "UTF-8")
+                        + "=" + URLEncoder.encode("mvpa", "UTF-8");
+
+                Log.v(TAG, text);
+
+            } catch (UnsupportedEncodingException e) {
+                Log.v(TAG, "bad encoding " + e.getMessage());
+                return 10;
+            }
+
+            //Send POST request
+            String request = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py";
+            try {
+                URL url = new URL(request);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                conn.setDoOutput(true);
+                conn.setInstanceFollowRedirects(false);
+
+                conn.setRequestMethod("GET");
+                conn.setRequestProperty("Content-Length", Integer.toString(text.length()));
+                conn.setUseCaches(false);
+
+                try (OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream())) {
+                    wr.write(text);
+                    wr.flush();
+                    wr.close();
+                }
+
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(
+                                conn.getInputStream()));
+                String decodedString;
+                while ((decodedString = in.readLine()) != null) {
+                    Log.w(TAG, decodedString);
+                }
+
+                in.close();
+                Log.v(TAG, "string decoded");
+                return 5;
+
+
+
+            } catch (MalformedURLException e) {
+                Log.e(TAG, "malformedurl" + e.getMessage());
+                return 10;
+            } //catch (IOException e) {
+               // Log.e(TAG, "ioexception" + e.getMessage());
+                //return 10;
+            //}
+
+        }
+    }*/
 
     public void gotoSetTmrw(View view) {
         Intent intent = new Intent(this, Gamble.class);
