@@ -89,10 +89,12 @@ public class DailyGoal extends AppCompatActivity
 
     @Override
     public void onResume(){
+        super.onResume();
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
         if (currentHour > 21){
             gotoGame();
         }
+
     }
 
     @Override
