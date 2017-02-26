@@ -15,6 +15,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.Fitness;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class DailyGoal extends AppCompatActivity
@@ -54,9 +55,14 @@ public class DailyGoal extends AppCompatActivity
 
         apiManager = new GambleAPIManager(mApiClient, this, session.getUserDetails().get("name"));
         apiManager.initSubscriptions();
+
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
+        if (currentHour >21){
+            this.gotoGame();
+        }
     }
 
-    public void gotoGame(View view) {
+    public void gotoGame() {
         Intent intent = new Intent(this, GamePage.class);
         startActivity(intent);
     }
