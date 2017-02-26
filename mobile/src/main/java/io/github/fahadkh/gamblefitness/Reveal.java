@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
@@ -25,6 +26,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.Field;
 
@@ -54,6 +59,12 @@ public class Reveal extends AppCompatActivity {
 
     //SessionManager session = new SessionManager(getApplicationContext());
     TextView tv;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +77,9 @@ public class Reveal extends AppCompatActivity {
 
         generateMVPA(url);
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public void generateMVPA(final String url) {
@@ -89,11 +103,10 @@ public class Reveal extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        if (mvpa == -1){
+                        if (mvpa == -1) {
                             generateMVPA(url);
                             Log.e(TAG, "Query error");
-                        }
-                        else {
+                        } else {
                             setMVPA(mvpa);
                         }
 
@@ -109,9 +122,9 @@ public class Reveal extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
-        //new mvpaRetrieve().execute(uid);
+    //new mvpaRetrieve().execute(uid);
 
-        //while (!mvpaFlag){}
+    //while (!mvpaFlag){}
     public void setMVPA(final int actualMVPA) {
         SessionManager session = new SessionManager(getApplicationContext());
         int wager = session.getWager();
@@ -127,16 +140,21 @@ public class Reveal extends AppCompatActivity {
         int num1 = Integer.parseInt(nums[0]);
         int num2 = Integer.parseInt(nums[1]);
         boolean inRange = false;
+        boolean inOneSD = false;
         int wagerloss = 0;
-        TextView coins = (TextView)findViewById(R.id.acti_coins);
+        int consolationPrize = 0;
+        TextView coins = (TextView) findViewById(R.id.acti_coins);
 
-        if (actualMVPA >= num1 && actualMVPA<= num2){
+        if (actualMVPA >= num1 && actualMVPA <= num2) {
             inRange = true;
-        }
-        else{
-            int absdiff = Math.min(Math.abs(actualMVPA-num1), Math.abs(actualMVPA-num2));
+        } else {
+            int absdiff = Math.min(Math.abs(actualMVPA - num1), Math.abs(actualMVPA - num2));
             //set a standardclass as 10 minutes. For each standard class away, the player loses a 5% of their wager
-            int standardclassesaway = absdiff/10;
+            int standardclassesaway = absdiff / 10;
+            if (standardclassesaway == 1){
+                inOneSD = true;
+                consolationPrize = (int)(0.5 * wager);
+            }
             wagerloss = (int) (standardclassesaway * 0.05 * wager);
         }
 
@@ -144,6 +162,12 @@ public class Reveal extends AppCompatActivity {
             TextView uselect = (TextView) findViewById(R.id.user_selection);
             uselect.setText("You guessed in the right range! You win " + wager + " Acticoins!");
             session.addActiCoins(wager);
+            int n = session.getActiCoins();
+            coins.setText(n + " Acticoins");
+        } else if(inOneSD){
+            TextView uselect = (TextView) findViewById(R.id.user_selection);
+            uselect.setText("You were close! You win " + consolationPrize + " Acticoins!");
+            session.addActiCoins(consolationPrize);
             int n = session.getActiCoins();
             coins.setText(n + " Acticoins");
         }
@@ -154,7 +178,6 @@ public class Reveal extends AppCompatActivity {
             int n = session.getActiCoins();
             coins.setText(n + " Acticoins");
         }
-
 
 
         Resources res = getResources();
@@ -175,7 +198,6 @@ public class Reveal extends AppCompatActivity {
 
             @Override
             public void run() {
-                // TODO Auto-generated method stub
                 while (pStatus < actualMVPA) {
                     pStatus += 1;
 
@@ -287,8 +309,43 @@ public class Reveal extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         moveTaskToBack(true);
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Reveal Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
     }
 }

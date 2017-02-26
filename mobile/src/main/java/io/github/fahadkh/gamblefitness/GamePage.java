@@ -1,6 +1,9 @@
 package io.github.fahadkh.gamblefitness;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +29,8 @@ public class GamePage extends AppCompatActivity
     public final static String USER_SELECT = "com.example.GambleFitness.USER_SELECT";
     String user_selection;
     private GambleAPIManager apiManager;
+    private boolean dataSent = false;
+    private boolean wifiCheck = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,12 +98,15 @@ public class GamePage extends AppCompatActivity
         apiManager = new GambleAPIManager(mApiClient, this, session.getUserDetails().get("name"));
         apiManager.initSubscriptions();
         apiManager.pushGoogleFitDataInBackground();
+        dataSent = true;
     }
 
     public void gotoReveal(View view) {
-        Intent intent = new Intent(this, Reveal.class);
-        intent.putExtra(USER_SELECT, user_selection);
-        startActivity(intent);
+        if (checkWifiOnAndConnected() && dataSent) {
+            Intent intent = new Intent(this, Reveal.class);
+            intent.putExtra(USER_SELECT, user_selection);
+            startActivity(intent);
+        }
     }
     @Override
     public void onBackPressed()
@@ -120,4 +128,22 @@ public class GamePage extends AppCompatActivity
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         apiManager.onConnectionFailed(connectionResult);
     }
+
+    private boolean checkWifiOnAndConnected() {
+        WifiManager wifiMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+
+        if (wifiMgr.isWifiEnabled()) { // Wi-Fi adapter is ON
+
+            WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+
+            if(wifiInfo == null || wifiInfo.getNetworkId() == -1){
+                return false; // Not connected to an access point
+            }
+            return true; // Connected to an access point
+        }
+        else {
+            return false; // Wi-Fi adapter is OFF
+        }
+    }
+
 }
