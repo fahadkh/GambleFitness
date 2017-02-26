@@ -15,6 +15,12 @@ import java.lang.reflect.Field;
 public class Gamble extends AppCompatActivity {
 
     private Spinner newgoal_spin;
+    private static final String COINS = "coins";
+    private static final String TM_GOAL = "tmrw_goal";
+    private static final String USED_GOAL = "used_goal";
+    int coinss = 0;
+    double daily_goal_set = 0;
+    String tm_goal = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,22 +30,32 @@ public class Gamble extends AppCompatActivity {
         Intent intent = getIntent();
         final SessionManager session = new SessionManager(getApplicationContext());
         TextView tomorrow_goal = (TextView) findViewById(R.id.tomorrowgoal);
+        TextView coins = (TextView)findViewById(R.id.acti_coins);
 
-        //TODO: Get actual MVPA
-        int actualMVPA = 20;
-        final double daily_goal_from_ytday = (double)session.getDailyGoal();
-        final double daily_goal_from_start = (double) (session.getWeeklyGoal()/7);
-        final double daily_goal_set;
+        final double daily_goal_from_ytday = (double) session.getDailyGoal();
+        final double daily_goal_from_start = (double) (session.getWeeklyGoal() / 7);
 
-        if (actualMVPA  < daily_goal_from_ytday){
-            tomorrow_goal.setText((int)daily_goal_from_start + " min");
-            daily_goal_set = daily_goal_from_start;
+        int actualMVPA = session.getMVPA();
+
+        if(savedInstanceState != null){
+            coinss = savedInstanceState.getInt(COINS);
+            tm_goal = savedInstanceState.getString(TM_GOAL);
+            daily_goal_set = savedInstanceState.getDouble(USED_GOAL);
         }
         else {
-            tomorrow_goal.setText((int)daily_goal_from_ytday + " min");
-            daily_goal_set = daily_goal_from_ytday;
+            if (actualMVPA < daily_goal_from_ytday) {
+                tm_goal = Integer.toString((int) daily_goal_from_start) + " min";
+                daily_goal_set = daily_goal_from_start;
+            } else {
+                tm_goal = Integer.toString((int) daily_goal_from_ytday) + " min";
+                daily_goal_set = daily_goal_from_ytday;
+            }
+
+            coinss = session.getActiCoins();
         }
 
+        tomorrow_goal.setText(tm_goal);
+        coins.setText(coinss + " Acticoins");
 
         newgoal_spin = (Spinner) findViewById(R.id.gamble_spinner);
         Integer[] items = new Integer[120];
@@ -95,13 +111,20 @@ public class Gamble extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
-
             }
 
         });
 
     }
 
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        savedInstanceState.putInt(COINS, coinss);
+        savedInstanceState.putString(TM_GOAL,tm_goal);
+        savedInstanceState.putDouble(USED_GOAL, daily_goal_set);
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
 
     public void gotoNightHolding(View view) {
         Intent intent;

@@ -22,6 +22,12 @@ public class DailyGoal extends AppCompatActivity
         implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
+    static final String COINS = "coins";
+    static final String GOAL = "goal";
+    int coinss = 20;
+    String goal_string = "0";
+    Intent intent = getIntent();
+
     private GambleAPIManager apiManager;
 
     @Override
@@ -30,17 +36,22 @@ public class DailyGoal extends AppCompatActivity
         setContentView(R.layout.activity_daily_goal);
 
 
-
         SessionManager session = new SessionManager(getApplicationContext());
-
         session.setGoalSet(false);
-        TextView coins = (TextView)findViewById(R.id.acti_coins);
-        int n = session.getActiCoins();
-        coins.setText(n + " Acticoins");
 
-        Intent intent = getIntent();
-        int goal = session.getDailyGoal();
-        String goal_string = Integer.toString(goal);
+        if (savedInstanceState != null) {
+            coinss = savedInstanceState.getInt(COINS);
+            goal_string = savedInstanceState.getString(GOAL);
+        }
+        else{
+            coinss = session.getActiCoins();
+            int goal = session.getDailyGoal();
+            goal_string = Integer.toString(goal);
+        }
+
+        TextView coins = (TextView)findViewById(R.id.acti_coins);
+        coins.setText(coinss + " Acticoins");
+
         TextView myAwesomeTextView = (TextView)findViewById(R.id.goal_today);
         myAwesomeTextView.setText(goal_string + " min");
 
@@ -58,25 +69,36 @@ public class DailyGoal extends AppCompatActivity
 
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
         if (currentHour > 21){
-            intent = new Intent(this, GamePage.class);
-            startActivity(intent);
+            gotoGame();
         }
     }
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        savedInstanceState.putInt(COINS, coinss);
+        savedInstanceState.putString(GOAL, goal_string);
+
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    public void gotoGame() {
+        intent = new Intent(this, GamePage.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onResume(){
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
+        if (currentHour > 21){
+            gotoGame();
+        }
+    }
+
     @Override
     public void onBackPressed()
     {
         moveTaskToBack(true);
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        Intent intent;
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        if (currentHour > 21){
-            intent = new Intent(this, GamePage.class);
-            startActivity(intent);
-        }
     }
 
     @Override

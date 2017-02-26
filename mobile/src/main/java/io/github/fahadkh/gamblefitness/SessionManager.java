@@ -45,6 +45,7 @@ public class SessionManager {
     public static final String WAGER = "wager";
     public static final String GOAL_SET = "goal_set";
     public static final String U_TYPE = "user_type";
+    public static final String MVPA ="mvpa";
 
     // Constructor
     public SessionManager(Context context){
@@ -129,6 +130,10 @@ public class SessionManager {
         // return goal
         return pref.getBoolean(U_TYPE,false);
     }
+    public int getMVPA(){
+        // return goal
+        return pref.getInt(MVPA,60);
+    }
 
     public int getDailyGoal(){
         // return goal
@@ -190,6 +195,11 @@ public class SessionManager {
 
         // Staring Login Activity
         _context.startActivity(i);
+    }
+
+    public void setMVPA(int mvpa){
+        editor.putInt(MVPA,mvpa);
+        editor.commit();
     }
 
     public void setDailyGoal(int goal){

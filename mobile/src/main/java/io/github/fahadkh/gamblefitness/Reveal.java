@@ -57,8 +57,16 @@ public class Reveal extends AppCompatActivity {
     int pStatus = 0;
     private Handler handler = new Handler();
 
+    private static final String COINS = "coins";
+    private static final String MVPA = "mvpa";
+    private static final String ANNOUNCE = "announcement";
+    int coinss = 0;
+    int gmvpa = 0;
+    String announcement = "";
+
     //SessionManager session = new SessionManager(getApplicationContext());
     TextView tv;
+    Intent intent = getIntent();
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -71,119 +79,34 @@ public class Reveal extends AppCompatActivity {
         setContentView(R.layout.activity_reveal);
 
         SessionManager session = new SessionManager(getApplicationContext());
+        TextView coins = (TextView) findViewById(R.id.acti_coins);
+        TextView uselect = (TextView) findViewById(R.id.user_selection);
 
         String uid = session.getUserDetails().get("name");
         String url = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py?mode=api&request=mvpa&uid=" + uid;
 
-        generateMVPA(url);
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
-
-    public void generateMVPA(final String url) {
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        Log.v(TAG, "Reponse: " + response);
-                        JSONObject resp;
-                        int mvpa = -1;
-                        try {
-                            resp = new JSONObject(response);
-                            mvpa = resp.getInt("mvpa");
-                            Log.v(TAG, Integer.toString(mvpa));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                        if (mvpa == -1) {
-                            generateMVPA(url);
-                        }
-                        else {
-                            setMVPA(mvpa);
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Error: " + error.getMessage());
-            }
-        });
-
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest);
-    }
-
-    //new mvpaRetrieve().execute(uid);
-
-    //while (!mvpaFlag){}
-    public void setMVPA(final int actualMVPA) {
-        SessionManager session = new SessionManager(getApplicationContext());
         int wager = session.getWager();
         int daily_goal = session.getDailyGoal();
 
         TextView goalline = (TextView) findViewById(R.id.daily_goal);
         goalline.setText("Your goal for today was " + daily_goal + " min.");
 
-        Intent intent = getIntent();
-        String user_selection = intent.getStringExtra(GamePage.USER_SELECT);
-
-        String[] nums = user_selection.split(" - ");
-        int num1 = Integer.parseInt(nums[0]);
-        int num2 = Integer.parseInt(nums[1]);
-        boolean inRange = false;
-        boolean inOneSD = false;
-        int wagerloss = 0;
-        int consolationPrize = 0;
-        TextView coins = (TextView) findViewById(R.id.acti_coins);
-
-        if (actualMVPA >= num1 && actualMVPA <= num2) {
-            inRange = true;
-        } else {
-            int absdiff = Math.min(Math.abs(actualMVPA - num1), Math.abs(actualMVPA - num2));
-            //set a standardclass as 10 minutes. For each standard class away, the player loses a 5% of their wager
-            int standardclassesaway = absdiff / 10;
-            if (standardclassesaway == 1){
-                inOneSD = true;
-                consolationPrize = (int)(0.5 * wager);
-            }
-            wagerloss = (int) (standardclassesaway * 0.05 * wager);
+        if (savedInstanceState != null){
+            coinss = savedInstanceState.getInt(COINS);
+            gmvpa = savedInstanceState.getInt(MVPA);
+            announcement = savedInstanceState.getString(ANNOUNCE);
+        }
+        else {
+            generateMVPA(url, session, wager);
         }
 
-        if (inRange) {
-            TextView uselect = (TextView) findViewById(R.id.user_selection);
-            uselect.setText("You guessed in the right range! You win " + wager + " Acticoins!");
-            session.addActiCoins(wager);
-            int n = session.getActiCoins();
-            coins.setText(n + " Acticoins");
-        } else if(inOneSD){
-            TextView uselect = (TextView) findViewById(R.id.user_selection);
-            uselect.setText("You were close! You win " + consolationPrize + " Acticoins!");
-            session.addActiCoins(consolationPrize);
-            int n = session.getActiCoins();
-            coins.setText(n + " Acticoins");
-        }
-        else{
-            TextView uselect = (TextView) findViewById(R.id.user_selection);
-            uselect.setText("You guessed wrongly! You lose " + wagerloss + " Acticoins!");
-            session.minusActiCoins(wagerloss);
-            int n = session.getActiCoins();
-            coins.setText(n + " Acticoins");
-        }
-
+        coins.setText(coinss + " Acticoins");
+        uselect.setText(announcement);
 
         Resources res = getResources();
         Drawable drawable = res.getDrawable(R.drawable.custom_progressbar_drawable);
         final ProgressBar mProgress = (ProgressBar) findViewById(R.id.progressBar);
-        mProgress.setProgress(actualMVPA);   // Main Progress
+        mProgress.setProgress(gmvpa);   // Main Progress
         mProgress.setSecondaryProgress(daily_goal); // Secondary Progress
         mProgress.setMax(daily_goal); // Maximum Progress
         mProgress.setProgressDrawable(drawable);
@@ -199,7 +122,7 @@ public class Reveal extends AppCompatActivity {
             @Override
             public void run() {
                 tv.setText(pStatus + "min");
-                while (pStatus < actualMVPA) {
+                while (pStatus < gmvpa) {
                     pStatus += 1;
 
                     handler.post(new Runnable() {
@@ -222,6 +145,95 @@ public class Reveal extends AppCompatActivity {
                 }
             }
         }).start();
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public void generateMVPA(final String url, final SessionManager session, final int wager) {
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+                        Log.v(TAG, "Reponse: " + response);
+                        JSONObject resp;
+                        int mvpa = -1;
+                        try {
+                            resp = new JSONObject(response);
+                            mvpa = resp.getInt("mvpa");
+                            Log.v(TAG, Integer.toString(mvpa));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        if (mvpa == -1) {
+                            generateMVPA(url, session, wager);
+                        }
+                        else {
+                            gmvpa = mvpa;
+                            session.setMVPA(gmvpa);
+                            setMVPA(mvpa, session, wager);
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Error: " + error.getMessage());
+            }
+        });
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+    }
+
+    //new mvpaRetrieve().execute(uid);
+
+    //while (!mvpaFlag){}
+    public void setMVPA(final int actualMVPA, SessionManager session, int wager) {
+
+        String user_selection = intent.getStringExtra(GamePage.USER_SELECT);
+
+        String[] nums = user_selection.split(" - ");
+        int num1 = Integer.parseInt(nums[0]);
+        int num2 = Integer.parseInt(nums[1]);
+        boolean inRange = false;
+        boolean inOneSD = false;
+        int wagerloss = 0;
+        int consolationPrize = 0;
+
+        if (actualMVPA >= num1 && actualMVPA <= num2) {
+            inRange = true;
+        } else {
+            int absdiff = Math.min(Math.abs(actualMVPA - num1), Math.abs(actualMVPA - num2));
+            //set a standardclass as 10 minutes. For each standard class away, the player loses a 5% of their wager
+            int standardclassesaway = absdiff / 10;
+            if (standardclassesaway == 1){
+                inOneSD = true;
+                consolationPrize = (int)(0.5 * wager);
+            }
+            wagerloss = (int) (standardclassesaway * 0.05 * wager);
+        }
+
+        if (inRange) {
+            announcement = "You guessed in the right range! You win " + Integer.toString(wager) + " Acticoins!";
+            session.addActiCoins(wager);
+            coinss = session.getActiCoins();
+        } else if(inOneSD){
+            announcement= "You were close! You win " + Integer.toString(consolationPrize) + " Acticoins!";
+            session.addActiCoins(consolationPrize);
+            coinss = session.getActiCoins();
+        }
+        else{
+            announcement = "You guessed wrongly! You lose " + Integer.toString(wagerloss) + " Acticoins!";
+            session.minusActiCoins(wagerloss);
+            coinss = session.getActiCoins();
+        }
     }
 
     public void gotoSetTmrw(View view) {
@@ -229,6 +241,14 @@ public class Reveal extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        savedInstanceState.putInt(COINS, coinss);
+        savedInstanceState.putInt(MVPA, gmvpa);
+        savedInstanceState.putString(ANNOUNCE,announcement);
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);

@@ -31,19 +31,26 @@ public class GamePage extends AppCompatActivity
     private GambleAPIManager apiManager;
     private boolean dataSent = false;
     private boolean wifiCheck = false;
+    Intent intent = getIntent();
+
+    static final String COINS = "coins";
+    int coinss = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_page);
 
-        Intent intent = getIntent();
-
         SessionManager session = new SessionManager(getApplicationContext());
 
+        if(savedInstanceState != null){
+            coinss = savedInstanceState.getInt(COINS);
+        }
+        else{
+            coinss = session.getActiCoins();
+        }
         TextView coins = (TextView)findViewById(R.id.acti_coins);
-        int n = session.getActiCoins();
-        coins.setText(n + " Acticoins");
+        coins.setText(coinss + " Acticoins");
 
         Spinner gamespin = (Spinner) findViewById(R.id.activity_guesser_spinner);
         String[] items = new String[120];
@@ -100,10 +107,15 @@ public class GamePage extends AppCompatActivity
         apiManager.pushGoogleFitDataInBackground();
         dataSent = true;
     }
-
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        savedInstanceState.putInt(COINS, coinss);
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
     public void gotoReveal(View view) {
         if (checkWifiOnAndConnected() && dataSent) {
-            Intent intent = new Intent(this, Reveal.class);
+            intent = new Intent(this, Reveal.class);
             intent.putExtra(USER_SELECT, user_selection);
             startActivity(intent);
         }
