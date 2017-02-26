@@ -30,6 +30,12 @@
         android:layout_width="fill_parent"
         android:textSize="30dp"
         android:layout_height="wrap_content"
-        android:text="Login"/>
+        android:text="user a"/>
+
+    <Button android:id="@+id/btnLogin2"
+        android:layout_width="fill_parent"
+        android:textSize="30dp"
+        android:layout_height="wrap_content"
+        android:text=" user b"/>
 
 </LinearLayout>

@@ -29,14 +29,19 @@ public class SplashScreen extends Activity {
             @Override
             public void run() {
                 SessionManager session = new SessionManager(getApplicationContext());
-                Intent i;
-                if (checkWifiOnAndConnected()) {
 
+                Intent i = null;
+
+                if (checkWifiOnAndConnected()) {
 
                     int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
                     if (!session.isLoggedIn()) {
                         i = new Intent(getApplicationContext(), LoginActivity.class);
-                    } else if (currentHour > 21 && currentHour < 25) {
+                    }
+                    else if(!session.getUserType()){
+                        new Intent (getApplicationContext(), ControlUser.class);
+                    }
+                    else if (currentHour > 21 && currentHour < 25) {
                         boolean bool = session.getGoalSet();
                         if (!bool) {
                             i = new Intent(getApplicationContext(), GamePage.class);
@@ -51,7 +56,8 @@ public class SplashScreen extends Activity {
 
 
                 }
-                else {
+
+            else{
                     i = new Intent(getApplicationContext(), wifiMissing.class);
                 }
 

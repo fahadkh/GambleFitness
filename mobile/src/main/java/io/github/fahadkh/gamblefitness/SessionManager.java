@@ -44,6 +44,7 @@ public class SessionManager {
     public static final String ACTICOINS = "coins";
     public static final String WAGER = "wager";
     public static final String GOAL_SET = "goal_set";
+    public static final String U_TYPE = "user_type";
 
     // Constructor
     public SessionManager(Context context){
@@ -66,6 +67,24 @@ public class SessionManager {
         editor.putBoolean(GOAL_SET, true);
 
         editor.putInt(WAGER, 10);
+
+        editor.putBoolean(U_TYPE,true);
+        // commit changes
+        editor.commit();
+    }
+    public void createLoginSessionControl(String name){
+        // Storing login value as TRUE
+        editor.putBoolean(IS_LOGIN, true);
+
+        // Storing name in pref
+        editor.putString(KEY_NAME, name);
+
+        editor.putInt(ACTICOINS, 20);
+        editor.putBoolean(GOAL_SET, true);
+
+        editor.putInt(WAGER, 10);
+
+        editor.putBoolean(U_TYPE,false);
         // commit changes
         editor.commit();
     }
@@ -104,6 +123,11 @@ public class SessionManager {
         user.put(KEY_NAME, pref.getString(KEY_NAME, null));
         // return user
         return user;
+    }
+
+    public boolean getUserType(){
+        // return goal
+        return pref.getBoolean(U_TYPE,false);
     }
 
     public int getDailyGoal(){

@@ -31,4 +31,5 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="wifi_missing">Please connect to Northwestern Wifi or VPN to continue. Go back to Home and launch the app again</string>
 </resources>

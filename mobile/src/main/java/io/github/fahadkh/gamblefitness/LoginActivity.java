@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ResourceBundle;
+
 public class LoginActivity extends Activity {
 
     // Email, password edittext
@@ -18,6 +20,7 @@ public class LoginActivity extends Activity {
 
     // login button
     Button btnLogin;
+    Button btnLogin2;
 
     // Alert Dialog Manager
     AlertDialogManager alert = new AlertDialogManager();
@@ -41,7 +44,7 @@ public class LoginActivity extends Activity {
 
         // Login button
         btnLogin = (Button) findViewById(R.id.btnLogin);
-
+        btnLogin2 = (Button) findViewById(R.id.btnLogin2);
 
         // Login button click event
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +64,32 @@ public class LoginActivity extends Activity {
                         finish();
 
                     }
+                else{
+                    // user didn't entered username
+                    // Show alert asking him to enter the details
+                    alert.showAlertDialog(LoginActivity.this, "Login failed..", "Please enter a valid username", false);
+                }
+
+            }
+        });
+
+        btnLogin2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                // Get username, password from EditText
+                String username = txtUsername.getText().toString();
+
+                // Check if username is filled
+                if(username.trim().length() > 0){
+                    session.createLoginSessionControl(username);
+
+                    // Staring MainActivity
+                    Intent i = new Intent(getApplicationContext(), ControlUser.class);
+                    startActivity(i);
+                    finish();
+
+                }
                 else{
                     // user didn't entered username
                     // Show alert asking him to enter the details
