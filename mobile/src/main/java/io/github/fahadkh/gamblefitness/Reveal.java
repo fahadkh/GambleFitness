@@ -198,6 +198,7 @@ public class Reveal extends AppCompatActivity {
 
             @Override
             public void run() {
+                tv.setText(pStatus + "min");
                 while (pStatus < actualMVPA) {
                     pStatus += 1;
 
