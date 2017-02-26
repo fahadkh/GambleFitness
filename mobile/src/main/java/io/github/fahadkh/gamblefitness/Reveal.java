@@ -91,7 +91,7 @@ public class Reveal extends AppCompatActivity {
 
                         if (mvpa == -1){
                             generateMVPA(url);
-                            Log.e(TAG, "Query error");
+                            Log.e(TAG, "Query error...Retrying");
                         }
                         else {
                             setMVPA(mvpa);
@@ -200,86 +200,6 @@ public class Reveal extends AppCompatActivity {
             }
         }).start();
     }
-
-    /*
-    class mvpaRetrieve extends AsyncTask<String, Void, Void> {
-
-        private Exception exception;
-
-        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        protected Void doInBackground(String... uid) {
-
-            String url = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py";
-            actualMVPA = getMVPA(url, uid[0]);
-            mvpaFlag = true;
-            return null;
-
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        public int getMVPA(String urlString, String uid) {
-            //Send GET request
-            int mvpa = 10;
-            String text;
-            try {
-
-                text = URLEncoder.encode("mode", "UTF-8")
-                        + "=" + URLEncoder.encode("api", "UTF-8");
-                text += "&" + URLEncoder.encode("uid", "UTF-8") + "="
-                        + URLEncoder.encode(uid, "UTF-8");
-                text += "&" + URLEncoder.encode("request", "UTF-8")
-                        + "=" + URLEncoder.encode("mvpa", "UTF-8");
-
-                Log.v(TAG, text);
-
-            } catch (UnsupportedEncodingException e) {
-                Log.v(TAG, "bad encoding " + e.getMessage());
-                return 10;
-            }
-
-            //Send POST request
-            String request = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py";
-            try {
-                URL url = new URL(request);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-                conn.setDoOutput(true);
-                conn.setInstanceFollowRedirects(false);
-
-                conn.setRequestMethod("GET");
-                conn.setRequestProperty("Content-Length", Integer.toString(text.length()));
-                conn.setUseCaches(false);
-
-                try (OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream())) {
-                    wr.write(text);
-                    wr.flush();
-                    wr.close();
-                }
-
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(
-                                conn.getInputStream()));
-                String decodedString;
-                while ((decodedString = in.readLine()) != null) {
-                    Log.w(TAG, decodedString);
-                }
-
-                in.close();
-                Log.v(TAG, "string decoded");
-                return 5;
-
-
-
-            } catch (MalformedURLException e) {
-                Log.e(TAG, "malformedurl" + e.getMessage());
-                return 10;
-            } //catch (IOException e) {
-               // Log.e(TAG, "ioexception" + e.getMessage());
-                //return 10;
-            //}
-
-        }
-    }*/
 
     public void gotoSetTmrw(View view) {
         Intent intent = new Intent(this, Gamble.class);

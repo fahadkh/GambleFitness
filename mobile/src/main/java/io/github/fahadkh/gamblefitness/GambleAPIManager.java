@@ -46,6 +46,10 @@ import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
 import com.google.android.gms.fitness.result.ListSubscriptionsResult;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import static java.text.DateFormat.getDateInstance;
 import static java.text.DateFormat.getTimeInstance;
 
@@ -57,7 +61,7 @@ import static java.text.DateFormat.getTimeInstance;
 public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
-    private static final int BUCKET_SIZE = 240;
+    private static final int BUCKET_SIZE = 5;
     private static String uID = "Undefined";
     private static final String TAG = "GambleAPIManager";
     private static final String BACKEND = "Backend";
@@ -70,6 +74,7 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
     private GoogleApiClient mApiClient;
     private AppCompatActivity context;
     private ResultCallback<ListSubscriptionsResult> mListSubscriptionsResultCallback;
+    private JSONArray FitJsonArray = new JSONArray();
 
     GambleAPIManager (GoogleApiClient client, AppCompatActivity c, String userID){
         mApiClient = client;
@@ -170,62 +175,61 @@ public class GambleAPIManager implements GoogleApiClient.ConnectionCallbacks,
 
             }
         }
+
+        uploadTableEntries(FitJsonArray.toString());
+
     }
 
-    private static void processDataSet(DataSet dataSet) {
+    private void processDataSet(DataSet dataSet) {
         Log.i(TAG, "Data returned for Data type: " + dataSet.getDataType().getName());
-        DateFormat dateFormat = getTimeInstance();
+        DateFormat dateFormat = getDateInstance();
+        DateFormat timeFormat = getTimeInstance();
 
         Log.d(TAG, dataSet.getDataPoints().toString());
 
         for (DataPoint dp : dataSet.getDataPoints()) {
             Log.i(TAG, "Data point:");
             Log.i(TAG, "\tType: " + dp.getDataType().getName());
-            Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
-            Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
             for(Field field : dp.getDataType().getFields()) {
-                Log.i(TAG, "\tField: " + field.getName() +
-                        " Value: " + dp.getValue(field));
-                uploadTableEntry(dp, field);
+
+                JSONObject fitDataPoint = new JSONObject();
+                long stTime = dp.getStartTime(TimeUnit.MILLISECONDS);
+                long endTime = dp.getEndTime(TimeUnit.MILLISECONDS);
+
+                String start_time = timeFormat.format(stTime) + " " + dateFormat.format(stTime);
+                String end_time = timeFormat.format(endTime) + " " + dateFormat.format(endTime);
+
+
+                try {
+                    fitDataPoint.put("uid", uID);
+                    fitDataPoint.put("start_time", start_time);
+                    fitDataPoint.put("end_time", end_time);
+                    fitDataPoint.put("field", field.getName());
+                    fitDataPoint.put("value", dp.getValue(field).toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                //Log.i(TAG, fitDataPoint.toString());
+                FitJsonArray.put(fitDataPoint);
             }
         }
     }
 
-    private static void uploadTableEntry(DataPoint dp, Field f) {
+    private void uploadTableEntries(String fitData) {
 
         OutputStreamWriter writer = null;
 
         try {
-
-            DateFormat timeFormat = getTimeInstance();
-            DateFormat dateFormat = getDateInstance();
-            long stTime = dp.getStartTime(TimeUnit.MILLISECONDS);
-            long endTime = dp.getEndTime(TimeUnit.MILLISECONDS);
-
-            String uid = uID;
-            String start_time = timeFormat.format(stTime) + " " + dateFormat.format(stTime);
-            String end_time = timeFormat.format(endTime) + " " + dateFormat.format(endTime);;
-            String field = f.getName();
-            String value = dp.getValue(f).toString();
-
-            String data = URLEncoder.encode("uid", "UTF-8")
-                    + "=" + URLEncoder.encode(uid, "UTF-8");
-
-            data += "&" + URLEncoder.encode("start_time", "UTF-8") + "="
-                    + URLEncoder.encode(start_time, "UTF-8");
-
-            data += "&" + URLEncoder.encode("end_time", "UTF-8")
-                    + "=" + URLEncoder.encode(end_time, "UTF-8");
-
-            data += "&" + URLEncoder.encode("field", "UTF-8")
-                    + "=" + URLEncoder.encode(field, "UTF-8");
-
-            data += "&" + URLEncoder.encode("value", "UTF-8")
-                    + "=" + URLEncoder.encode(value, "UTF-8");
+            String data = URLEncoder.encode("data", "UTF-8")
+                    + "=" + URLEncoder.encode(fitData, "UTF-8");
 
             Log.d(BACKEND, data);
 
             int dataLength = data.length();
+
+            Log.d(BACKEND, Integer.toString(dataLength));
+
             String request = "http://murphy.wot.eecs.northwestern.edu/~nsc969/SQLGateway.py";
             URL url = new URL(request);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
