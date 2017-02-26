@@ -13,17 +13,23 @@ public class NightMode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_night_mode);
-
+        Intent intent;
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
         if (currentHour > 4 && currentHour < 22){
-            this.gotoDaily();
+            intent = new Intent(this, DailyGoal.class);
+            startActivity(intent);
         }
     }
 
-    public void gotoDaily() {
+    @Override
+    protected void onResume(){
+        super.onResume();
         Intent intent;
-        intent = new Intent(this, DailyGoal.class);
-        startActivity(intent);
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
+        if (currentHour > 4 && currentHour < 22){
+            intent = new Intent(this, DailyGoal.class);
+            startActivity(intent);
+        }
     }
 
     public void onBackPressed()

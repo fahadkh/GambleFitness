@@ -57,19 +57,26 @@ public class DailyGoal extends AppCompatActivity
         apiManager.initSubscriptions();
 
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        if (currentHour >21){
-            this.gotoGame();
+        if (currentHour > 21){
+            intent = new Intent(this, GamePage.class);
+            startActivity(intent);
         }
-    }
-
-    public void gotoGame() {
-        Intent intent = new Intent(this, GamePage.class);
-        startActivity(intent);
     }
     @Override
     public void onBackPressed()
     {
         moveTaskToBack(true);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Intent intent;
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
+        if (currentHour > 21){
+            intent = new Intent(this, GamePage.class);
+            startActivity(intent);
+        }
     }
 
     @Override
