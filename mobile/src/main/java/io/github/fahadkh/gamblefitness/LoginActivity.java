@@ -85,7 +85,7 @@ public class LoginActivity extends Activity {
                     session.createLoginSessionControl(username);
 
                     // Staring MainActivity
-                    Intent i = new Intent(getApplicationContext(), ControlUser.class);
+                    Intent i = new Intent(getApplicationContext(), MainActivityControl.class);
                     startActivity(i);
                     finish();
 
