@@ -66,7 +66,7 @@ public class Reveal extends AppCompatActivity {
 
     //SessionManager session = new SessionManager(getApplicationContext());
     TextView tv;
-    Intent intent = getIntent();
+    Intent intent;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -77,6 +77,8 @@ public class Reveal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reveal);
+        intent = getIntent();
+        String user_selection = intent.getStringExtra(GamePage.USER_SELECT);
 
         SessionManager session = new SessionManager(getApplicationContext());
         TextView coins = (TextView) findViewById(R.id.acti_coins);
@@ -97,7 +99,7 @@ public class Reveal extends AppCompatActivity {
             announcement = savedInstanceState.getString(ANNOUNCE);
         }
         else {
-            generateMVPA(url, session, wager);
+            generateMVPA(url, session, wager, user_selection);
         }
 
         coins.setText(coinss + " Acticoins");
@@ -150,7 +152,7 @@ public class Reveal extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    public void generateMVPA(final String url, final SessionManager session, final int wager) {
+    public void generateMVPA(final String url, final SessionManager session, final int wager, final String user_selection) {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -172,12 +174,12 @@ public class Reveal extends AppCompatActivity {
                         }
 
                         if (mvpa == -1) {
-                            generateMVPA(url, session, wager);
+                            generateMVPA(url, session, wager, user_selection);
                         }
                         else {
                             gmvpa = mvpa;
                             session.setMVPA(gmvpa);
-                            setMVPA(mvpa, session, wager);
+                            setMVPA(mvpa, session, wager, user_selection);
                         }
 
                     }
@@ -195,9 +197,7 @@ public class Reveal extends AppCompatActivity {
     //new mvpaRetrieve().execute(uid);
 
     //while (!mvpaFlag){}
-    public void setMVPA(final int actualMVPA, SessionManager session, int wager) {
-
-        String user_selection = intent.getStringExtra(GamePage.USER_SELECT);
+    public void setMVPA(final int actualMVPA, SessionManager session, int wager, String user_selection) {
 
         String[] nums = user_selection.split(" - ");
         int num1 = Integer.parseInt(nums[0]);

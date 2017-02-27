@@ -31,14 +31,14 @@ public class GamePage extends AppCompatActivity
     private GambleAPIManager apiManager;
     private boolean dataSent = false;
     private boolean wifiCheck = false;
-    Intent intent = getIntent();
-
+    Intent intent;
     static final String COINS = "coins";
     int coinss = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        intent = getIntent();
         setContentView(R.layout.activity_game_page);
 
         SessionManager session = new SessionManager(getApplicationContext());
