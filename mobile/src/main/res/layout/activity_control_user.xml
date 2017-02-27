@@ -13,13 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:text="Your MVPA so far is" />
+        android:gravity="center"
+        android:text="Check GoogleFit for your activity information. Come back at 10pm for a summary" />
 
-    <TextView
-        android:id= "@+id/mvpa_control"
+    <Button
+        android:id="@+id/next"
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="" />
-
+        android:text="It's 10pm"
+        android:onClick="gotoRevealControl" />
 </LinearLayout>

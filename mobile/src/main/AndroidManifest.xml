@@ -51,7 +51,9 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".wifiMissing" />
-        <activity android:name=".ControlUser"></activity>
+        <activity android:name=".ControlUser" />
+        <activity android:name=".MainActivityControl" />
+        <activity android:name=".RevealControl"></activity>
     </application>
 
 </manifest>
