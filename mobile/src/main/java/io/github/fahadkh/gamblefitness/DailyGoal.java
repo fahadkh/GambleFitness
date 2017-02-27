@@ -69,8 +69,7 @@ public class DailyGoal extends AppCompatActivity
 
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
         if (currentHour > 21){
-            intent = new Intent(this, GamePage.class);
-            startActivity(intent);
+            gotoGame();
         }
     }
 
@@ -89,7 +88,7 @@ public class DailyGoal extends AppCompatActivity
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    public void gotoGame(View view) {
+    public void gotoGame() {
         intent = new Intent(this, GamePage.class);
         startActivity(intent);
     }
@@ -99,8 +98,7 @@ public class DailyGoal extends AppCompatActivity
         super.onResume();
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
         if (currentHour > 21){
-            intent = new Intent(this, GamePage.class);
-            startActivity(intent);
+            gotoGame();
         }
 
     }
