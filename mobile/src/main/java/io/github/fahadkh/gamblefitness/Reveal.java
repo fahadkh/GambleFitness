@@ -86,6 +86,8 @@ public class Reveal extends AppCompatActivity {
 
         String uid = session.getUserDetails().get("name");
         String url = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py?mode=api&request=mvpa&uid=" + uid;
+        url += "post=true&goal=";
+        url += Integer.toString(session.getDailyGoal());
 
         int wager = session.getWager();
         int daily_goal = session.getDailyGoal();

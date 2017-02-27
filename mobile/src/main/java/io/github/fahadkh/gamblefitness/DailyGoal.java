@@ -72,6 +72,12 @@ public class DailyGoal extends AppCompatActivity
             gotoGame();
         }
     }
+
+    public void gotoGame(View view) {
+        intent = new Intent(this, GamePage.class);
+        startActivity(intent);
+    }
+
     public void onSaveInstanceState(Bundle savedInstanceState) {
         // Save the user's current game state
         savedInstanceState.putInt(COINS, coinss);
