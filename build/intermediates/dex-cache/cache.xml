@@ -169,7 +169,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f503c612ba1b7f67be03f058e168852390f88130">
+        sha1="63a3ec4a002afb842d59595dbd930becf5831fd2">
         <dex dex="/home/fahad/Documents/EECS/mHealth/GambleFitness/mobile/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_33e39e4dd4f6575fb4623f289e454dba8c2af91f/classes.dex" />
     </item>
     <item
@@ -565,7 +565,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="95818bbd60b03bc152d1bd8d65254ce4a14b1354">
+        sha1="b5dd387b5663b5b8d0e43a6f1f0a43e92e22eb3a">
         <dex dex="/home/fahad/Documents/EECS/mHealth/GambleFitness/mobile/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_77d1df0bc1b5a54e8cd196437e38b4e9d8fcddb3/classes.dex" />
     </item>
     <item
