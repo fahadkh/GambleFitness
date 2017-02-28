@@ -8,13 +8,14 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import java.util.Calendar;
 
 
 public class SplashScreen extends Activity {
 
-
+    private static final String SPLASH = "splash";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,25 +37,32 @@ public class SplashScreen extends Activity {
 
                     int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
                     if (!session.isLoggedIn()) {
+                        Log.w(SPLASH, "gotoLogin");
                         i = new Intent(getApplicationContext(), LoginActivity.class);
                     }
                     else if(!session.getUserType()) {
                         if (currentHour > 21 || currentHour < 5) {
+                            Log.w(SPLASH, "ControlReveal");
                             i = new Intent(getApplicationContext(), RevealControl.class);
                         } else {
+                            Log.w(SPLASH, "ControlDay");
                            i =  new Intent(getApplicationContext(), ControlUser.class);
                         }
                     }
                     else if (currentHour > 21 && currentHour < 25) {
                         boolean bool = session.getGoalSet();
                         if (!bool) {
+                            Log.w(SPLASH, "GamePlay");
                             i = new Intent(getApplicationContext(), GamePage.class);
                         } else {
+                            Log.w(SPLASH, "GameNight");
                             i = new Intent(getApplicationContext(), NightMode.class);
                         }
                     } else if (currentHour >= 0 && currentHour < 6) {
+                        Log.w(SPLASH, "GameNight");
                         i = new Intent(getApplicationContext(), NightMode.class);
                     } else {
+                        Log.w(SPLASH, "GameDay");
                         i = new Intent(getApplicationContext(), DailyGoal.class);
                     }
 

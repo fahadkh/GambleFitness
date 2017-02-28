@@ -43,6 +43,7 @@
                 android:background="@drawable/circular_shape"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:max="100"
+                android:secondaryProgress="100"
                 android:progress="65" />
 
 

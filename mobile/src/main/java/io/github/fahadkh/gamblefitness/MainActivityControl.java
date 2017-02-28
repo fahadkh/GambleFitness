@@ -3,6 +3,7 @@ package io.github.fahadkh.gamblefitness;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +14,7 @@ import java.lang.reflect.Field;
 import java.util.Calendar;
 
 public class MainActivityControl extends AppCompatActivity {
+    private static final String MAINCONTROL = "MainControl";
     private Spinner mspin;
     private int weekly_goal;
     private int daily_goal;
@@ -72,6 +74,7 @@ public class MainActivityControl extends AppCompatActivity {
     }
 
     public void gotoDaily(View view) {
+        Log.w(MAINCONTROL, "help");
         Intent intent;
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
 

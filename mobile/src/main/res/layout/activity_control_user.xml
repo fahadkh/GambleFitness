@@ -16,11 +16,4 @@
         android:gravity="center"
         android:text="Check GoogleFit for your activity information. Come back at 10pm for a summary" />
 
-    <Button
-        android:id="@+id/next"
-        android:layout_marginTop="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="It's 10pm"
-        android:onClick="gotoRevealControl" />
 </LinearLayout>

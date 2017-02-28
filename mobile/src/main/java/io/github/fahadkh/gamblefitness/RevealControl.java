@@ -1,5 +1,6 @@
 package io.github.fahadkh.gamblefitness;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -41,6 +43,7 @@ import java.util.Calendar;
 public class RevealControl extends AppCompatActivity
         implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
+
     private static final String TAG = "MVPA Request";
     int pStatus = 0;
     private Handler handler = new Handler();
@@ -68,12 +71,6 @@ public class RevealControl extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reveal_control);
         intent = getIntent();
-
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        if (currentHour <22 && currentHour >4 ){
-            intentnew = new Intent(this, ControlUser.class);
-            startActivity(intentnew);
-        }
 
         TextView useselect = (TextView) findViewById(R.id.user_selection);
 
@@ -125,8 +122,8 @@ public class RevealControl extends AppCompatActivity
         mProgress.setMax(daily_goal); // Maximum Progress
         mProgress.setProgressDrawable(drawable);
 
-      /*  ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, 100);
-        animation.setDuration(50000);
+        /*ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
+        animation.setDuration(10000);
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();*/
 
@@ -170,7 +167,7 @@ public class RevealControl extends AppCompatActivity
         RequestQueue queue = Volley.newRequestQueue(this);
 
         // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+       StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -205,6 +202,11 @@ public class RevealControl extends AppCompatActivity
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
+
+
+        /*gmvpa = 20;
+        session.setMVPA(gmvpa);
+        announcement = "Here is how well you did today!";*/
     }
 
 
@@ -259,7 +261,7 @@ public class RevealControl extends AppCompatActivity
     public void onResume(){
         super.onResume();
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        if (currentHour >4){
+        if (currentHour < 22 && currentHour >4){
             intent = new Intent(this, ControlUser.class);
             startActivity(intent);
         }

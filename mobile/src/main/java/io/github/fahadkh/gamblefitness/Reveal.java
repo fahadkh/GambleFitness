@@ -115,7 +115,7 @@ public class Reveal extends AppCompatActivity {
         mProgress.setMax(daily_goal); // Maximum Progress
         mProgress.setProgressDrawable(drawable);
 
-      /*  ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, 100);
+        /*ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
         animation.setDuration(50000);
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();*/
