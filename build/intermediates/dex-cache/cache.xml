@@ -169,8 +169,13 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
+<<<<<<< HEAD
         sha1="db4aca1c1ec60f2c098d3b6c91cedfb7838f83ed">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-10.2.0_b3d2c13fad768c705465d266f599c12214bd603f\classes.dex" />
+=======
+        sha1="63a3ec4a002afb842d59595dbd930becf5831fd2">
+        <dex dex="/home/fahad/Documents/EECS/mHealth/GambleFitness/mobile/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_33e39e4dd4f6575fb4623f289e454dba8c2af91f/classes.dex" />
+>>>>>>> origin/Interface
     </item>
     <item
         is-multidex="true"
@@ -565,8 +570,13 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
+<<<<<<< HEAD
         sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
         <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_069694688f58309eb9d311c957047fc03e2e16bb\classes.dex" />
+=======
+        sha1="b5dd387b5663b5b8d0e43a6f1f0a43e92e22eb3a">
+        <dex dex="/home/fahad/Documents/EECS/mHealth/GambleFitness/mobile/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_77d1df0bc1b5a54e8cd196437e38b4e9d8fcddb3/classes.dex" />
+>>>>>>> origin/Interface
     </item>
     <item
         is-multidex="true"
