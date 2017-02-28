@@ -18,15 +18,13 @@ public class LoginActivity extends Activity {
     // Email, password edittext
     EditText txtUsername, txtPassword;
 
-    // login button
-    Button btnLogin;
-    Button btnLogin2;
-
     // Alert Dialog Manager
     AlertDialogManager alert = new AlertDialogManager();
 
     // Session Manager Class
     SessionManager session;
+
+    Intent intent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,51 +39,18 @@ public class LoginActivity extends Activity {
 
         Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
 
+    }
 
-        // Login button
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnLogin2 = (Button) findViewById(R.id.btnLogin2);
-
-        // Login button click event
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // Get username, password from EditText
+        public void gotoMain(View view) {
+                        // Get username, password from EditText
                 String username = txtUsername.getText().toString();
 
                 // Check if username is filled
                 if(username.trim().length() > 0){
-                        session.createLoginSession(username);
-
-                        // Staring MainActivity
-                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(i);
-                        finish();
-
-                    }
-                else{
-                    // user didn't entered username
-                    // Show alert asking him to enter the details
-                    alert.showAlertDialog(LoginActivity.this, "Login failed..", "Please enter a valid username", false);
-                }
-
-            }
-        });
-
-        btnLogin2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // Get username, password from EditText
-                String username = txtUsername.getText().toString();
-
-                // Check if username is filled
-                if(username.trim().length() > 0){
-                    session.createLoginSessionControl(username);
+                    session.createLoginSession(username);
 
                     // Staring MainActivity
-                    Intent i = new Intent(getApplicationContext(), MainActivityControl.class);
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                     finish();
 
@@ -97,8 +62,31 @@ public class LoginActivity extends Activity {
                 }
 
             }
-        });
+
+    public void gotoControl(View view) {
+        // Get username, password from EditText
+        String username = txtUsername.getText().toString();
+
+        // Check if username is filled
+        if(username.trim().length() > 0){
+            session.createLoginSession(username);
+
+            // Staring MainActivity
+            Intent i = new Intent(getApplicationContext(), MainActivityControl.class);
+            startActivity(i);
+            finish();
+
+        }
+        else{
+            // user didn't entered username
+            // Show alert asking him to enter the details
+            alert.showAlertDialog(LoginActivity.this, "Login failed..", "Please enter a valid username", false);
+        }
+
     }
+
+
+
     @Override
     public void onBackPressed()
     {

@@ -31,6 +31,7 @@ import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.Fitness;
+import com.google.android.gms.vision.text.Text;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,6 +56,7 @@ public class RevealControl extends AppCompatActivity
     //SessionManager session = new SessionManager(getApplicationContext());
     TextView tv;
     Intent intent;
+    Intent intentnew;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -64,19 +66,19 @@ public class RevealControl extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_reveal_control);
+        intent = getIntent();
 
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        if (currentHour >4){
-            intent = new Intent(this, ControlUser.class);
-            startActivity(intent);
+        if (currentHour <22 && currentHour >4 ){
+            intentnew = new Intent(this, ControlUser.class);
+            startActivity(intentnew);
         }
 
+        TextView useselect = (TextView) findViewById(R.id.user_selection);
 
-        setContentView(R.layout.activity_reveal);
-        intent = getIntent();
-        String user_selection = intent.getStringExtra(GamePage.USER_SELECT);
+
         SessionManager session = new SessionManager(getApplicationContext());
-        TextView uselect = (TextView) findViewById(R.id.user_selection);
 
         GoogleApiClient mApiClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.HISTORY_API)
@@ -98,6 +100,8 @@ public class RevealControl extends AppCompatActivity
         url += "post=true&goal=";
         url += Integer.toString(session.getDailyGoal());
 
+        Log.e("QUERY:", url);
+
         int daily_goal = session.getDailyGoal();
 
         TextView goalline = (TextView) findViewById(R.id.daily_goal);
@@ -108,10 +112,10 @@ public class RevealControl extends AppCompatActivity
             announcement = savedInstanceState.getString(ANNOUNCE);
         }
         else {
-            generateMVPA(url, session, user_selection);
+            generateMVPA(url, session);
         }
 
-        uselect.setText(announcement);
+        useselect.setText(announcement);
 
         Resources res = getResources();
         Drawable drawable = res.getDrawable(R.drawable.custom_progressbar_drawable);
@@ -161,7 +165,7 @@ public class RevealControl extends AppCompatActivity
 
     }
 
-    public void generateMVPA(final String url, final SessionManager session, final String user_selection) {
+    public void generateMVPA(final String url, final SessionManager session) {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -183,7 +187,7 @@ public class RevealControl extends AppCompatActivity
                         }
 
                         if (mvpa == -1) {
-                            generateMVPA(url, session, user_selection);
+                            generateMVPA(url, session);
                         }
                         else {
                             gmvpa = mvpa;

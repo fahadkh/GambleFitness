@@ -21,7 +21,7 @@ public class MainActivityControl extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_control);
 
         final SessionManager session = new SessionManager(getApplicationContext());
 

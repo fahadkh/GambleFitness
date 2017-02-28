@@ -30,7 +30,7 @@ public class ControlUser extends AppCompatActivity         implements GoogleApiC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily_goal);
+        setContentView(R.layout.activity_control_user);
 
 
         SessionManager session = new SessionManager(getApplicationContext());

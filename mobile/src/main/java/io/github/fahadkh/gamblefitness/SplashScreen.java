@@ -40,7 +40,7 @@ public class SplashScreen extends Activity {
                     }
                     else if(!session.getUserType()) {
                         if (currentHour > 21 || currentHour < 5) {
-                            i = new Intent(getApplicationContext(), RevealControl.class)
+                            i = new Intent(getApplicationContext(), RevealControl.class);
                         } else {
                             new Intent(getApplicationContext(), ControlUser.class);
                         }

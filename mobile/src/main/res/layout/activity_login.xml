@@ -22,20 +22,19 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dip"/>
 
-
-
-
     <!-- Login button -->
     <Button android:id="@+id/btnLogin"
         android:layout_width="fill_parent"
         android:textSize="30dp"
         android:layout_height="wrap_content"
-        android:text="user a"/>
+        android:text="user a"
+        android:onClick="gotoMain"/>
 
-    <Button android:id="@+id/btnLogin2"
+    <Button android:id="@+id/btnLoginControl"
         android:layout_width="fill_parent"
         android:textSize="30dp"
         android:layout_height="wrap_content"
-        android:text=" user b"/>
+        android:text=" user b"
+        android:onClick="gotoControl"/>
 
 </LinearLayout>
