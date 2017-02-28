@@ -69,7 +69,7 @@ public class LoginActivity extends Activity {
 
         // Check if username is filled
         if(username.trim().length() > 0){
-            session.createLoginSession(username);
+            session.createLoginSessionControl(username);
 
             // Staring MainActivity
             Intent i = new Intent(getApplicationContext(), MainActivityControl.class);
