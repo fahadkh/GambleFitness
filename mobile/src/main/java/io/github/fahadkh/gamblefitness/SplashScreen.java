@@ -42,7 +42,7 @@ public class SplashScreen extends Activity {
                         if (currentHour > 21 || currentHour < 5) {
                             i = new Intent(getApplicationContext(), RevealControl.class);
                         } else {
-                            new Intent(getApplicationContext(), ControlUser.class);
+                           i =  new Intent(getApplicationContext(), ControlUser.class);
                         }
                     }
                     else if (currentHour > 21 && currentHour < 25) {

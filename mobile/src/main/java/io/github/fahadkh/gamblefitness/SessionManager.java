@@ -80,10 +80,7 @@ public class SessionManager {
         // Storing name in pref
         editor.putString(KEY_NAME, name);
 
-        editor.putInt(ACTICOINS, 20);
         editor.putBoolean(GOAL_SET, true);
-
-        editor.putInt(WAGER, 10);
 
         editor.putBoolean(U_TYPE,false);
         // commit changes
