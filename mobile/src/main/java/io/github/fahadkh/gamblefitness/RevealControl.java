@@ -78,27 +78,29 @@ public class RevealControl extends AppCompatActivity
 
         SessionManager session = new SessionManager(getApplicationContext());
 
-        GoogleApiClient mApiClient = new GoogleApiClient.Builder(this)
-                .addApi(Fitness.HISTORY_API)
-                .addApi(Fitness.RECORDING_API)
-                .addScope(new Scope(Scopes.FITNESS_BODY_READ_WRITE))
-                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
-                .addConnectionCallbacks(this)
-                .enableAutoManage(this, 0, this)
-                .build();
+       if(!infocollected) {
+           GoogleApiClient mApiClient = new GoogleApiClient.Builder(this)
+                   .addApi(Fitness.HISTORY_API)
+                   .addApi(Fitness.RECORDING_API)
+                   .addScope(new Scope(Scopes.FITNESS_BODY_READ_WRITE))
+                   .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
+                   .addConnectionCallbacks(this)
+                   .enableAutoManage(this, 0, this)
+                   .build();
 
-        apiManager = new GambleAPIManager(mApiClient, this, session.getUserDetails().get("name"));
-        apiManager.initSubscriptions();
-        apiManager.pushGoogleFitDataInBackground();
-        dataSent = true;
+           apiManager = new GambleAPIManager(mApiClient, this, session.getUserDetails().get("name"));
+           apiManager.initSubscriptions();
+           apiManager.pushGoogleFitDataInBackground();
+           dataSent = true;
+       }
 
+           String uid = session.getUserDetails().get("name");
+           String url = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py?mode=api&request=mvpa&uid=" + uid;
+           url += "&post=true&goal=";
+           url += Integer.toString(session.getDailyGoal());
 
-        String uid = session.getUserDetails().get("name");
-        String url = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py?mode=api&request=mvpa&uid=" + uid;
-        url += "&post=true&goal=";
-        url += Integer.toString(session.getDailyGoal());
+           Log.e("QUERY:", url);
 
-        Log.e("QUERY:", url);
 
         int daily_goal = session.getDailyGoal();
 
@@ -286,22 +288,5 @@ public class RevealControl extends AppCompatActivity
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         apiManager.onConnectionFailed(connectionResult);
-    }
-
-    private boolean checkWifiOnAndConnected() {
-        WifiManager wifiMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-
-        if (wifiMgr.isWifiEnabled()) { // Wi-Fi adapter is ON
-
-            WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-
-            if(wifiInfo == null || wifiInfo.getNetworkId() == -1){
-                return false; // Not connected to an access point
-            }
-            return true; // Connected to an access point
-        }
-        else {
-            return false; // Wi-Fi adapter is OFF
-        }
     }
 }
