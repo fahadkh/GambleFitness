@@ -42,6 +42,7 @@ public class GamePage extends AppCompatActivity
         setContentView(R.layout.activity_game_page);
 
         SessionManager session = new SessionManager(getApplicationContext());
+        session.setGoalSet(false);
 
         if(savedInstanceState != null){
             coinss = savedInstanceState.getInt(COINS);

@@ -105,6 +105,7 @@ public class RevealControl extends AppCompatActivity
         goalline.setText("Your goal for today was " + daily_goal + " min.");
 
         if (savedInstanceState != null){
+            Log.w(TAG, "I'm here");
             gmvpa = savedInstanceState.getInt(MVPA);
             announcement = savedInstanceState.getString(ANNOUNCE);
         }
@@ -172,7 +173,7 @@ public class RevealControl extends AppCompatActivity
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        Log.v(TAG, "Reponse: " + response);
+                        Log.v(TAG, "Response: " + response);
                         JSONObject resp;
                         int mvpa = -1;
                         try {
