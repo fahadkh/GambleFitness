@@ -55,6 +55,7 @@ public class RevealControl extends AppCompatActivity
     private static final String ANNOUNCE = "announcement";
     int gmvpa = 0;
     String announcement = "";
+    boolean infocollected = false;
 
     //SessionManager session = new SessionManager(getApplicationContext());
     TextView tv;
@@ -104,7 +105,7 @@ public class RevealControl extends AppCompatActivity
         TextView goalline = (TextView) findViewById(R.id.daily_goal);
         goalline.setText("Your goal for today was " + daily_goal + " min.");
 
-        if (savedInstanceState != null){
+        if (infocollected && savedInstanceState != null){
             Log.w(TAG, "I'm here");
             gmvpa = savedInstanceState.getInt(MVPA);
             announcement = savedInstanceState.getString(ANNOUNCE);
@@ -123,10 +124,10 @@ public class RevealControl extends AppCompatActivity
         mProgress.setMax(daily_goal); // Maximum Progress
         mProgress.setProgressDrawable(drawable);
 
-        /*ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
+        ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
         animation.setDuration(10000);
         animation.setInterpolator(new DecelerateInterpolator());
-        animation.start();*/
+        animation.start();
 
         tv = (TextView) findViewById(R.id.txtProgress);
         new Thread(new Runnable() {
@@ -188,6 +189,7 @@ public class RevealControl extends AppCompatActivity
                             generateMVPA(url, session);
                         }
                         else {
+                            infocollected = true;
                             gmvpa = mvpa;
                             session.setMVPA(gmvpa);
                             announcement = "Here is how well you did today!";
@@ -263,6 +265,7 @@ public class RevealControl extends AppCompatActivity
         super.onResume();
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
         if (currentHour < 22 && currentHour >4){
+            infocollected = false;
             intent = new Intent(this, ControlUser.class);
             startActivity(intent);
         }

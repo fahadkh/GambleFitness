@@ -63,6 +63,7 @@ public class Reveal extends AppCompatActivity {
     int coinss = 0;
     int gmvpa = 0;
     String announcement = "";
+    boolean infocollected = false;
 
     //SessionManager session = new SessionManager(getApplicationContext());
     TextView tv;
@@ -95,7 +96,7 @@ public class Reveal extends AppCompatActivity {
         TextView goalline = (TextView) findViewById(R.id.daily_goal);
         goalline.setText("Your goal for today was " + daily_goal + " min.");
 
-        if (savedInstanceState != null){
+        if (infocollected && savedInstanceState != null){
             coinss = savedInstanceState.getInt(COINS);
             gmvpa = savedInstanceState.getInt(MVPA);
             announcement = savedInstanceState.getString(ANNOUNCE);
@@ -179,6 +180,7 @@ public class Reveal extends AppCompatActivity {
                             generateMVPA(url, session, wager, user_selection);
                         }
                         else {
+                            infocollected = true;
                             gmvpa = mvpa;
                             session.setMVPA(gmvpa);
                             setMVPA(mvpa, session, wager, user_selection);
@@ -239,6 +241,7 @@ public class Reveal extends AppCompatActivity {
     }
 
     public void gotoSetTmrw(View view) {
+        infocollected = false;
         Intent intent = new Intent(this, Gamble.class);
         startActivity(intent);
     }
