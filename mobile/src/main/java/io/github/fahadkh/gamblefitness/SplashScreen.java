@@ -35,7 +35,7 @@ public class SplashScreen extends Activity {
             public void run() {
                 SessionManager session = new SessionManager(getApplicationContext());
 
-                Intent i = null;
+                Intent i;
 
                 if (checkWifiOnAndConnected()) {
 

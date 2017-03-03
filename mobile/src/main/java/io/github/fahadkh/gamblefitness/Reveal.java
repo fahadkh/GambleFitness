@@ -67,8 +67,8 @@ public class Reveal extends AppCompatActivity {
     boolean infocollected = false;
 
     //SessionManager session = new SessionManager(getApplicationContext());
-    TextView tv;
     Intent intent;
+    int goal =0;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -85,8 +85,6 @@ public class Reveal extends AppCompatActivity {
         String user_selection = intent.getStringExtra(GamePage.USER_SELECT);
 
         SessionManager session = new SessionManager(getApplicationContext());
-        TextView coins = (TextView) findViewById(R.id.acti_coins);
-        TextView uselect = (TextView) findViewById(R.id.user_selection);
 
         String uid = session.getUserDetails().get("name");
         String url = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py?mode=api&request=mvpa&uid=" + uid;
@@ -94,65 +92,14 @@ public class Reveal extends AppCompatActivity {
         url += Integer.toString(session.getDailyGoal());
 
         int wager = session.getWager();
-        int daily_goal = session.getDailyGoal();
+        goal = session.getDailyGoal();
 
         TextView goalline = (TextView) findViewById(R.id.daily_goal);
-        goalline.setText("Your goal for today was " + daily_goal + " min.");
+        goalline.setText("Your goal for today was " + goal + " min.");
 
-        if (infocollected && savedInstanceState != null){
-            coinss = savedInstanceState.getInt(COINS);
-            gmvpa = savedInstanceState.getInt(MVPA);
-            announcement = savedInstanceState.getString(ANNOUNCE);
-        }
-        else {
             generateMVPA(url, session, wager, user_selection);
-        }
 
-        coins.setText(coinss + " Acticoins");
-        uselect.setText(announcement);
 
-        Resources res = getResources();
-        Drawable drawable = res.getDrawable(R.drawable.custom_progressbar_drawable);
-        final ProgressBar mProgress = (ProgressBar) findViewById(R.id.progressBar);
-        mProgress.setProgress(gmvpa);   // Main Progress
-        mProgress.setSecondaryProgress(daily_goal); // Secondary Progress
-        mProgress.setMax(daily_goal); // Maximum Progress
-        mProgress.setProgressDrawable(drawable);
-
-        /*ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
-        animation.setDuration(50000);
-        animation.setInterpolator(new DecelerateInterpolator());
-        animation.start();*/
-
-        tv = (TextView) findViewById(R.id.txtProgress);
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                tv.setText(pStatus + "min");
-                while (pStatus < gmvpa) {
-                    pStatus += 1;
-
-                    handler.post(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // TODO Auto-generated method stub
-                            mProgress.setProgress(pStatus);
-                            tv.setText(pStatus + "min");
-
-                        }
-                    });
-                    try {
-                        // Sleep for 200 milliseconds.
-                        // Just to display the progress slowly
-                        Thread.sleep(8); //thread will take approx 1.5 seconds to finish
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -241,6 +188,52 @@ public class Reveal extends AppCompatActivity {
             session.minusActiCoins(wagerloss);
             coinss = session.getActiCoins();
         }
+
+        TextView coins = (TextView) findViewById(R.id.acti_coins);
+        TextView uselect = (TextView) findViewById(R.id.user_selection);
+
+        coins.setText(coinss + " Acticoins");
+        uselect.setText(announcement);
+
+        Resources res = getResources();
+        Drawable drawable = res.getDrawable(R.drawable.custom_progressbar_drawable);
+        final ProgressBar mProgress = (ProgressBar) findViewById(R.id.progressBar);
+        mProgress.setProgress(gmvpa);   // Main Progress
+        mProgress.setSecondaryProgress(goal); // Secondary Progress
+        mProgress.setMax(goal); // Maximum Progress
+        mProgress.setProgressDrawable(drawable);
+
+        /*ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
+        animation.setDuration(50000);
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();*/
+
+
+        final TextView tv = (TextView) findViewById(R.id.txtProgress);
+        tv.setText(pStatus + "min");
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (pStatus < gmvpa) {
+                    pStatus += 1;
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mProgress.setProgress(pStatus);
+                            tv.setText(pStatus + "min");
+                        }
+                    });
+                    try {
+                        // Sleep for 200 milliseconds.
+                        // Just to display the progress slowly
+                        Thread.sleep(200); //thread will take approx 1.5 seconds to finish
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     }
 
     public void gotoSetTmrw(View view) {
@@ -249,14 +242,6 @@ public class Reveal extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        // Save the user's current game state
-        savedInstanceState.putInt(COINS, coinss);
-        savedInstanceState.putInt(MVPA, gmvpa);
-        savedInstanceState.putString(ANNOUNCE,announcement);
-        // Always call the superclass so it can save the view hierarchy state
-        super.onSaveInstanceState(savedInstanceState);
-    }
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);
