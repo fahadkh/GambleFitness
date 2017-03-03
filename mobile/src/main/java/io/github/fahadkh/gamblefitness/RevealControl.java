@@ -41,6 +41,7 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 
+
 public class RevealControl extends AppCompatActivity
         implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
@@ -51,14 +52,11 @@ public class RevealControl extends AppCompatActivity
     private GambleAPIManager apiManager;
     private boolean dataSent = false;
 
-    private static final String MVPA = "mvpa";
-    private static final String ANNOUNCE = "announcement";
     int gmvpa = 0;
+    int goal= 0;
     String announcement = "";
     private boolean infocollected = false;
 
-    //SessionManager session = new SessionManager(getApplicationContext());
-    TextView tv;
     Intent intent;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -73,12 +71,11 @@ public class RevealControl extends AppCompatActivity
         setContentView(R.layout.activity_reveal_control);
         intent = getIntent();
 
-        TextView useselect = (TextView) findViewById(R.id.user_selection);
 
 
         SessionManager session = new SessionManager(getApplicationContext());
         dataSent = session.getDataSent();
-       if(!dataSent) {
+      if(!dataSent) {
            GoogleApiClient mApiClient = new GoogleApiClient.Builder(this)
                    .addApi(Fitness.HISTORY_API)
                    .addApi(Fitness.RECORDING_API)
@@ -102,60 +99,15 @@ public class RevealControl extends AppCompatActivity
 
            Log.e("QUERY:", url);
 
-        
-        int daily_goal = session.getDailyGoal();
+
+        goal = session.getDailyGoal();
 
         TextView goalline = (TextView) findViewById(R.id.daily_goal);
-        goalline.setText("Your goal for today was " + daily_goal + " min.");
+        goalline.setText("Your goal for today was " + goal + " min.");
         infocollected = session.getInfoCollect();
 
         generateMVPA(url, session);
 
-
-        useselect.setText(announcement);
-
-        Resources res = getResources();
-        Drawable drawable = res.getDrawable(R.drawable.custom_progressbar_drawable);
-        final ProgressBar mProgress = (ProgressBar) findViewById(R.id.progressBar);
-        mProgress.setProgress(gmvpa);   // Main Progress
-        mProgress.setSecondaryProgress(daily_goal); // Secondary Progress
-        mProgress.setMax(daily_goal); // Maximum Progress
-        mProgress.setProgressDrawable(drawable);
-
-        /*ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
-        animation.setDuration(10000);
-        animation.setInterpolator(new DecelerateInterpolator());
-        animation.start();*/
-
-        tv = (TextView) findViewById(R.id.txtProgress);
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                tv.setText(pStatus + "min");
-                while (pStatus < gmvpa) {
-                    pStatus += 1;
-
-                    handler.post(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            // TODO Auto-generated method stub
-                            mProgress.setProgress(pStatus);
-                            tv.setText(pStatus + "min");
-
-                        }
-                    });
-                    try {
-                        // Sleep for 200 milliseconds.
-                        // Just to display the progress slowly
-                        Thread.sleep(8); //thread will take approx 1.5 seconds to finish
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -188,10 +140,11 @@ public class RevealControl extends AppCompatActivity
                         }
                         else {
                             session.setInfoCollected(true);
-                            infocollected = true;
                             gmvpa = mvpa;
                             session.setMVPA(gmvpa);
                             announcement = "Here is how well you did today!";
+                            Log.w(TAG, Integer.toString(gmvpa));
+                            setMVPA();
                         }
 
                     }
@@ -211,6 +164,51 @@ public class RevealControl extends AppCompatActivity
         announcement = "Here is how well you did today!";*/
     }
 
+    public void setMVPA(){
+
+        TextView useselect = (TextView) findViewById(R.id.user_selection);
+        useselect.setText(announcement);
+        final TextView tv = (TextView) findViewById(R.id.txtProgress);
+        tv.setText(pStatus + "min");
+
+        Resources res = getResources();
+        Drawable drawable = res.getDrawable(R.drawable.custom_progressbar_drawable);
+        final ProgressBar mProgress = (ProgressBar) findViewById(R.id.progressBar);
+        mProgress.setProgress(gmvpa);   // Main Progress
+        mProgress.setSecondaryProgress(goal); // Secondary Progress
+        mProgress.setMax(goal); // Maximum Progress
+        mProgress.setProgressDrawable(drawable);
+
+        /*ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
+        animation.setDuration(10000);
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();*/
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (pStatus < gmvpa) {
+                    pStatus += 1;
+
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mProgress.setProgress(pStatus);
+                            tv.setText(pStatus + "min");
+                        }
+                    });
+                    try {
+                        // Sleep for 200 milliseconds.
+                        // Just to display the progress slowly
+                        Thread.sleep(200); //thread will take approx 1.5 seconds to finish
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
+    }
 
    /* public void onSaveInstanceState(Bundle savedInstanceState) {
         // Save the user's current game state
