@@ -118,7 +118,7 @@ public class GamePage extends AppCompatActivity
         super.onSaveInstanceState(savedInstanceState);
     }
     public void gotoReveal(View view) {
-        if (checkWifiOnAndConnected() && dataSent) {
+        if (dataSent) {
             intent = new Intent(this, Reveal.class);
             intent.putExtra(USER_SELECT, user_selection);
             startActivity(intent);
@@ -143,23 +143,6 @@ public class GamePage extends AppCompatActivity
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         apiManager.onConnectionFailed(connectionResult);
-    }
-
-    private boolean checkWifiOnAndConnected() {
-        WifiManager wifiMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-
-        if (wifiMgr.isWifiEnabled()) { // Wi-Fi adapter is ON
-
-            WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-
-            if(wifiInfo == null || wifiInfo.getNetworkId() == -1){
-                return false; // Not connected to an access point
-            }
-            return true; // Connected to an access point
-        }
-        else {
-            return false; // Wi-Fi adapter is OFF
-        }
     }
 
 }
