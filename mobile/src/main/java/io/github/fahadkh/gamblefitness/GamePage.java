@@ -2,6 +2,7 @@ package io.github.fahadkh.gamblefitness;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.support.annotation.NonNull;
@@ -38,8 +39,10 @@ public class GamePage extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         intent = getIntent();
         setContentView(R.layout.activity_game_page);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         SessionManager session = new SessionManager(getApplicationContext());
         session.setGoalSet(false);

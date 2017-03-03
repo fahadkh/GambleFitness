@@ -3,6 +3,7 @@ package io.github.fahadkh.gamblefitness;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -49,18 +50,16 @@ public class RevealControl extends AppCompatActivity
     private Handler handler = new Handler();
     private GambleAPIManager apiManager;
     private boolean dataSent = false;
-    private boolean wifiCheck = false;
 
     private static final String MVPA = "mvpa";
     private static final String ANNOUNCE = "announcement";
     int gmvpa = 0;
     String announcement = "";
-    boolean infocollected = false;
+    private boolean infocollected = false;
 
     //SessionManager session = new SessionManager(getApplicationContext());
     TextView tv;
     Intent intent;
-    Intent intentnew;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -70,6 +69,7 @@ public class RevealControl extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_reveal_control);
         intent = getIntent();
 
@@ -77,8 +77,8 @@ public class RevealControl extends AppCompatActivity
 
 
         SessionManager session = new SessionManager(getApplicationContext());
-
-       if(!infocollected) {
+        dataSent = session.getDataSent();
+       if(!dataSent) {
            GoogleApiClient mApiClient = new GoogleApiClient.Builder(this)
                    .addApi(Fitness.HISTORY_API)
                    .addApi(Fitness.RECORDING_API)
@@ -91,6 +91,7 @@ public class RevealControl extends AppCompatActivity
            apiManager = new GambleAPIManager(mApiClient, this, session.getUserDetails().get("name"));
            apiManager.initSubscriptions();
            apiManager.pushGoogleFitDataInBackground();
+           session.setDataSent(true);
            dataSent = true;
        }
 
@@ -106,7 +107,7 @@ public class RevealControl extends AppCompatActivity
 
         TextView goalline = (TextView) findViewById(R.id.daily_goal);
         goalline.setText("Your goal for today was " + daily_goal + " min.");
-
+        infocollected = session.getInfoCollect();
         if (infocollected && savedInstanceState != null){
             Log.w(TAG, "I'm here");
             gmvpa = savedInstanceState.getInt(MVPA);
@@ -191,6 +192,7 @@ public class RevealControl extends AppCompatActivity
                             generateMVPA(url, session);
                         }
                         else {
+                            session.setInfoCollected(true);
                             infocollected = true;
                             gmvpa = mvpa;
                             session.setMVPA(gmvpa);
@@ -265,9 +267,11 @@ public class RevealControl extends AppCompatActivity
 
     public void onResume(){
         super.onResume();
+        SessionManager session = new SessionManager(getApplicationContext());
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
         if (currentHour < 22 && currentHour >4){
-            infocollected = false;
+            session.setDataSent(false);
+            session.setInfoCollected(false);
             intent = new Intent(this, ControlUser.class);
             startActivity(intent);
         }

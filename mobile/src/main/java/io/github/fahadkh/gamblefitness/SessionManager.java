@@ -46,6 +46,9 @@ public class SessionManager {
     public static final String GOAL_SET = "goal_set";
     public static final String U_TYPE = "user_type";
     public static final String MVPA ="mvpa";
+    public static final String DATASENT ="datasent";
+    public static final String INFOCOLLECT ="datasent";
+
 
     // Constructor
     public SessionManager(Context context){
@@ -83,6 +86,8 @@ public class SessionManager {
         editor.putBoolean(GOAL_SET, true);
 
         editor.putBoolean(U_TYPE,false);
+        editor.putBoolean(DATASENT,false);
+        editor.putBoolean(INFOCOLLECT,false);
         // commit changes
         editor.commit();
     }
@@ -142,6 +147,10 @@ public class SessionManager {
         return pref.getInt(WEEKLY_GOAL,240);
     }
 
+    public boolean getDataSent(){
+        return pref.getBoolean(DATASENT,false);
+    }
+
     public int getActiCoins(){
         // return goal
         int n = pref.getInt(ACTICOINS,20);
@@ -157,6 +166,12 @@ public class SessionManager {
     public boolean getGoalSet(){
         // return goalset boolean
         boolean bool = pref.getBoolean(GOAL_SET,false);
+        return bool;
+    }
+
+    public boolean getInfoCollect(){
+        // return goalset boolean
+        boolean bool = pref.getBoolean(INFOCOLLECT,false);
         return bool;
     }
 
@@ -210,6 +225,16 @@ public class SessionManager {
 
     public void setGoalSet(boolean bool){
         editor.putBoolean(GOAL_SET,bool);
+        editor.commit();
+    }
+
+    public void setDataSent(boolean bool){
+        editor.putBoolean(DATASENT,bool);
+        editor.commit();
+    }
+
+    public void setInfoCollected(boolean bool){
+        editor.putBoolean(INFOCOLLECT,bool);
         editor.commit();
     }
 

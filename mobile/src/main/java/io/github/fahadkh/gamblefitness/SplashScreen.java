@@ -3,6 +3,7 @@ package io.github.fahadkh.gamblefitness;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -19,7 +20,10 @@ public class SplashScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_splash_screen);
+
+        SessionManager session = new SessionManager(getApplicationContext());
 
 
         new Handler().postDelayed(new Runnable() {
@@ -45,6 +49,8 @@ public class SplashScreen extends Activity {
                             Log.w(SPLASH, "ControlReveal");
                             i = new Intent(getApplicationContext(), RevealControl.class);
                         } else {
+                            session.setDataSent(false);
+                            session.setInfoCollected(false);
                             Log.w(SPLASH, "ControlDay");
                            i =  new Intent(getApplicationContext(), ControlUser.class);
                         }
@@ -82,7 +88,7 @@ public class SplashScreen extends Activity {
 
     }
     private boolean checkWifiOnAndConnected() {
-        WifiManager wifiMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         if (wifiMgr.isWifiEnabled()) { // Wi-Fi adapter is ON
 
