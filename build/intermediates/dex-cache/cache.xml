@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\9627f23f4cb0b8378c9f7de60aff8a70d7c540e5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7d14fe9bd2283b2eb7fcab08458aa0357917e138">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5c9fbab05e13c2c49fcd2deabb60b1e7e4d49e06\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\c7354b6a7ae48704e83237edee94c9571b5cb55c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2c4396b57f473631543b6402e55fbd46813c199f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\b1f4b1bfd4385f715893c0fa89ae9b62a9048a50\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d9173cd68839107aeb65a8856587e9291e71c2a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\570d59979d270073f914d326b589f4109e084f5d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3d13e510077b35fe8e49930a627dd849ad5da0dc">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4515950be4a9bcd2052a1ce241700ec28d063486\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\5841b59137c3c4fe2cb54bda90355a9c272ca0f3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ab0c7fe28f9506302eb39adf1ebf5858732e18ec">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9d584fbc86e9d99071352408b9ef14d2b8809fba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\f373d5c36f95754b3315f01ddf50a111a3917286\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="48532a016bb0dfbe7970c147ce784598a515406b">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_788ddf9a75078c766160ec499f2c91cd3f5cde83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\c29ebb9a6a0c9d24cfbb84957bcfb4469feb01ec\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="421a5cebe9ff187c98075c59786e9464c5c67d36">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_06f394cdc2ffdfc650ec4fd55e90622d88a7ae1d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\d6d512e6bbb9639227abac484c9c4e490a91320b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e7157a9577c983651d6c6ee313813424fe2d8ab6">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4b0c38811a1eb934ef0a8837b06c798b370cf4fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\cbb113cd4c2558d89df18f92c7d256f1b57622bb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="857ce7350acf811749c8fd0254d3d39b02aa71f5">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e8d8aa0004c1529797d856535c4839f581f49e39\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\fbd0020bf446ac1b1128cef5188e966a324ac94c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="423fb69e69759d8b726fa4a4fb6a1ea9fc86d1cd">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5186ea4b79328408bf52bb0ea05de7901bbe7e75\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\a78a95fbd146be4a16ed22a0eea4c50023117959\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="db48dfabe8ecc46681ceca418d6bd61a5339f818">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b3a8eefe239e368c9e24a164614e2e4764fe2811\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\3d92ef4670775fae96a5f5c5a00047fd41df9456\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1df6d719c4e264d66bb98baa5cb637495b8cca66">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ff093b17da12aab251215adcad083d76f4b23341\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\fbaba2b1ba3cbec93ad36eb9392b2517f5acf416\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_23ff694bca71506bc97c2970ef9a6621c6a5e241\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\d7383df70f54a23e5775f5536e512c4080d95f76\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_74d81bdfea7d9b6092ec0e091a55a9e13a8de515\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\e44405808eaedc4b6a4ff5f18759295677b86ca5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_07051a17107309f15aa685f4f58d260d67865ef5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\b1d802383a7656b0cf28c518533f676ead31228f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1fbf3733f36fea63e70373212796e70f9079981f">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a5cb3341a75dce142155a46feb2c3e1314273339\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\e690f88cfa57220d5ee3190e4d724de0c7c552d4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2d251b9d6d9955a9616e00e2f72adb88e263fb06\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\504461b31771ddb3fa2f04276f3b82c2d8e7e2b9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_05eeb16bb237bfac7432e6522002369b48c4d2d2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\e96553671ce524387d664d41498b2d0fde279995\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="db4aca1c1ec60f2c098d3b6c91cedfb7838f83ed">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_44e07326c471c8076d8b81a8b35f04f1e9fd8e33\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\dad1198b94c411b892760dd26c5bb74ac8a079f6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="75575883f0348fc5d2be85f23bd10b050095cf17">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2160e43402f2a904deddb18f82ae79c4fca1d235\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\eed55be018227c318fc39a393d8dac6156574084\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3aaf1e7b5fe9f4d3ff22c4edc0ead631f7389d30">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_af7dac6e0e045d786bc7e8efcffebf211a459b7d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\26200ef4a02636db5b299e578d667f56e06b6325\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea03bbfaed89818f233ee9918fac493f2b63895a">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6018b4c1558fe6e4eab737c2aa1bd31c9146bb43\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\5586adce7b5cacc4ddb5c5d92440beb5c447f5bf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="646b2c48e147b943f0a39842457fdc66d501e4b6">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_64b1e8085f1d89fc1b8145c1a6b5f1fdc49ffc16\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\44ff4fc724b6475ec82ccd993d1789fb0e0a2dff\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5d30d18d445101829ddf3e9962982feb4b908b37\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\6915ac6024d7deeda9ecd85e17212f475072898e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d9be7d95fca0755beab4e845a4722aedcc3046af\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\662ffb16f0210bcd336342240dd00e76117d5516\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a9493f008850469ed3fab9b28658919562882aed">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4e288b1abdad6f3a6f407a593ee00be6fd781763\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\7279c1eeb7eeddd5c381af85c2780ac01edab12a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5e134ffaced2f8a71184fd765552e310c5e75610\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\09b951fb0ce6d105af864a878a23c580a7d68edf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fd896eb2611cf80f0c6d3757cdf6a6739b242b77\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\5a7bc07bc30b52f209e56a473b26cfc5fcca5d39\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f22d878e567c7b0b519fb53d08369a253bc8cfcf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\a28d8657b78759213479058d924f721660cc72e4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fdc65863dbb48b87bc001a19106c07496d287617\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\537a424e5e08d9ee9ff9a04ef3f61cab0e01548c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7113302c965566b66df46c6ca75ea301576114a5">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5a10d12fd9c21d9df6d6b8f39fb5becf5a45b692\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\2116c472d8d6acc3ea2ce872af4c053f242f926c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="74c5a91d6510ad42410e8a047d90d2ea6721a0e0">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2fd4c6e2fdc2521dcca378e49e65604fc4380987\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\bb5f0f123940379d4421b6902c7ebbfa5c3008ae\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="94fca868854457ede6df15c902938468c71d579e">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_27c6b91e5b9a8f8ecca012d9b2396852370a85a0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.2.0_47712471d6dd05ba678ee09d670a3607eacf21e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\bcaf425680f6dada3bda5eea77907303b448dae0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aa23e4589287adb431ef59d6c78af79ab8885682">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_80b5b3b566b46f2cfe95eabe120d1d21574b08e1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\ee2ae40bb60a4d46d10d7501dc971e1c6e7c147f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fd2e9eadc9d214966ee7f60d6c5a17a335d7533">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3198010449fe6b7e4d0106709ffeffce77b308be\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\38e31fc52cfc3d61bc0fff8464b00afbfe59712a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_53448c073bcecea1ee1b14359b8830eab001816f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.1\constraint-layout-solver-1.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1ad79631209e77b0a2730fc112b4cc0c66a95132">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.1_0f289a6d08a1288bf0c43588b1704eafed6b409b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\77615dc96461a14f6e423c6284656be643f2cddd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0f58195bee8a08f35e7d4ee7fd4b0479e570e172">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b4799192e7116ef28d323c139a4a31076971ea48\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\b75f6a47fced3fc60e489744a1b21c923c2fe4c8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0e301f24b283f14b564f660c9abe863af6be5896">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6f9ef5ecb1d2080d7ba19f205f1d16ac4839ee4d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\1ba4512f7fc6f915dc14a210fe0f165e28a7ecf0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="444f9de23145e8caba7bf1c1772acad142ea6013">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_476cc9b7a2ceae952c7c1d484509c8add8f55fc2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\b2fe26dec7ef19f0957e667451b986c9687e4adc\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="101393e975eaf36e3ff40b277ee9a019e077afef">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1ae313662a02f3a17745580a22a3fae62ab3c287\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\43f2cc4439885297bb044076c769b3df4da95663\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="654b294d429b56fd18392f2b68ad79954f431f8e">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7a73d04213be43bf499531bf259201bfd749d69e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\1471c9b6ab171de5628c70efbbe03b576f8f4a72\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45e0953544711e0b5a2d227732e88cccb82793bc">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_49d1d7bf3363721e6c9bb8e439aeaf9e5941387d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\4631404da43627bc76e753d4ab135f8e2f8583b2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fe35fa3a60be3c3bf4c37849147d95649dd848e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\cc112a4bf96028c3f6b2149cc427215f0b5ce834\output\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_48863a66780e79c7d7e0a92af48e3551105263b9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\77cc2c88554b177149fc6b30a88ae41256c2c83e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8438c64f9eb581429dc592f7c9b3156a3d071653">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2374537c81bd43f980f41d15566ba630d4eead39\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\e2b99003c1165aa4ed2a5413a0613f95634d8488\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1bab75be1918fc9871be4da7afe38d7e4d308303">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_232b322d33b8514939845f48f6d46f89f638f1e1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\02fa3ad6c4be6f2df1842020b86a412d5c809d81\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4e01b82d664e1a8253b2b9658e74b5da35c8771d">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b868a2f88f6c58c2c2cae44647e731c2074e7967\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\cd5d56966ffdb4389ec204f4b211140554a295b3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d08bb32b88df3dbcbe1d498c3c57f020b8c521ec">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0800397a43660aec4f6c30138dd76c0062347130\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\4aa720fa335a51f905ce8a99257bc9931dbd473a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b831d3902674d096189451d46fce219e2c2904b7">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ea8e9af647d5f7e0b556e6431e9503684d4d7228\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\27bfab0f7eb314ba335d1ac6a0946c8ba3dc8a25\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9d1d0e1270310e34e2d65afda2bc18605c14cd46">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7c5039949a14b47a73d9bf9a2e7c4ce060372960\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\f3c0fd0bc915ba88f3084e8f685836de57275b5f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6d2718b81346397634d3c1358a20bcdc8751bb2d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\45ba5dd214452505fa707e9d26cef572a3846904\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="90270132a5f1a33584f453c571257dd35e728201">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1dfbbaf28b6a7a3996abd0c96fb642b43d2d58bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\6304793c981737e37c2e16fc8f059b8cb5a05213\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4ef2d91da513c4d7e773ae438fe04d0e4c135957">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5e1d58e0b09b95fe39c70e29c4ca20c1322f2d9d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\497e7a5569de524b6889810cf33a689136a562a0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a3f7595ca32e614b454ceb7b7e241bb037a28e86">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8ffd56246e3e68f083ad60e1ed4c71eabad00589\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\3f5bbfa69888fdf1b2b5a45b7220e1904c652b98\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca82d5800780b1d53f0f9ab43678d8634a34cddc">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_abf7c402508ae2727628c0e5581594b16b1c4d46\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\eff9661a6f2d3e1d65585c9616676f42387ca63e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6eceacde59cdaf48ed5a0e060aaf178805e33ac4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\6bec289c53e293678682b92931a5be45a042dbc8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="68485f21eeb5d6c9ed82c445d520b9fc81c87108">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_270763a908dcca8b4f0e26103ea5f567a871c7b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\3909128001f47f2f3daf21a9c9d364244f0a47df\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8e1d31656bc9f1889283836e025e6cb703acd38a">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0e778b1a56689fc23152561d0ed11ea179b63ed5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\ee88111dd4546719a05af78791ccb6783b124fed\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_332e32c8e8802681992b42b27c3bda70241795ae\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\2459c65c2817d63c6ec2c060a1332b7bba1f733a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ddb7fed808f4331174b59428ccfc46b3696c9812">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4ceb9a180f6627cfd9507b0f53b604c40c69a1cc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\2d26d57c00eefab6e69909d1d36f5fa991b8974d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e4e5c0abaf825998ee99f7c6611e46bbd49e9f0d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\fa87de53b834684073e20c05c38f0945e3e50ca5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3f4483afd050f3be12db7838422309446a45daa1">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_83a4944aa6e4a8b32a2cfab0c322f42bd8f8837d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\cc112a4bf96028c3f6b2149cc427215f0b5ce834\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1e2c86f6473973268ef44607543219568b51f765\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\0572110d4bc365454302a7bf456867114265dca3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2b4ca029475ae3b6f09a9c1e6f14b0ec947c7171\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\b28bda0c3b344a5ff1e6186610974338f685255a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d60818f3584ab199ef8ecad05c09980801d862df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\rovik\.android\build-cache\8848e4850a2b515f4fe153cc51f9334fe16f4a0d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6da05b7498da036b5b37c3beb861cd2060929dcd">
+        <dex dex="C:\Users\rovik\Desktop\GitProjects\GambleFitness\mobile\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c8d4dc5b3bf2da4a0ce124a2c5ebb991e486b927\classes.dex" />
+    </item>
+
+</items>

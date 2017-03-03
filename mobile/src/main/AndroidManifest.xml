@@ -53,7 +53,7 @@
         <activity android:name=".wifiMissing" />
         <activity android:name=".ControlUser" />
         <activity android:name=".MainActivityControl" />
-        <activity android:name=".RevealControl"></activity>
+        <activity android:name=".RevealControl" />
     </application>
 
 </manifest>

@@ -102,20 +102,15 @@ public class RevealControl extends AppCompatActivity
 
            Log.e("QUERY:", url);
 
-
+        
         int daily_goal = session.getDailyGoal();
 
         TextView goalline = (TextView) findViewById(R.id.daily_goal);
         goalline.setText("Your goal for today was " + daily_goal + " min.");
         infocollected = session.getInfoCollect();
-        if (infocollected && savedInstanceState != null){
-            Log.w(TAG, "I'm here");
-            gmvpa = savedInstanceState.getInt(MVPA);
-            announcement = savedInstanceState.getString(ANNOUNCE);
-        }
-        else {
-            generateMVPA(url, session);
-        }
+
+        generateMVPA(url, session);
+
 
         useselect.setText(announcement);
 
@@ -127,10 +122,10 @@ public class RevealControl extends AppCompatActivity
         mProgress.setMax(daily_goal); // Maximum Progress
         mProgress.setProgressDrawable(drawable);
 
-        ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
+        /*ObjectAnimator animation = ObjectAnimator.ofInt(mProgress, "progress", 0, daily_goal);
         animation.setDuration(10000);
         animation.setInterpolator(new DecelerateInterpolator());
-        animation.start();
+        animation.start();*/
 
         tv = (TextView) findViewById(R.id.txtProgress);
         new Thread(new Runnable() {
@@ -217,13 +212,13 @@ public class RevealControl extends AppCompatActivity
     }
 
 
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+   /* public void onSaveInstanceState(Bundle savedInstanceState) {
         // Save the user's current game state
         savedInstanceState.putInt(MVPA, gmvpa);
         savedInstanceState.putString(ANNOUNCE,announcement);
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
-    }
+    }*/
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);
