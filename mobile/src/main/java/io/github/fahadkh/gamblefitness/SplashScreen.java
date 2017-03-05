@@ -69,6 +69,7 @@ public class SplashScreen extends Activity {
                         i = new Intent(getApplicationContext(), NightMode.class);
                     } else {
                         Log.w(SPLASH, "GameDay");
+                        session.setGoalSet(false);
                         i = new Intent(getApplicationContext(), DailyGoal.class);
                     }
 
