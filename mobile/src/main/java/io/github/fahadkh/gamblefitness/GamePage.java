@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -111,6 +112,7 @@ public class GamePage extends AppCompatActivity
         apiManager.pushGoogleFitDataInBackground();
         dataSent = true;
     }
+
     public void onSaveInstanceState(Bundle savedInstanceState) {
         // Save the user's current game state
         savedInstanceState.putInt(COINS, coinss);
@@ -118,11 +120,19 @@ public class GamePage extends AppCompatActivity
         super.onSaveInstanceState(savedInstanceState);
     }
     public void gotoReveal(View view) {
-        if (dataSent) {
-            intent = new Intent(this, Reveal.class);
-            intent.putExtra(USER_SELECT, user_selection);
-            startActivity(intent);
-        }
+        intent = new Intent(this,Reveal.class);
+        intent.putExtra(USER_SELECT, user_selection);
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (dataSent) {
+                    dataSent=false;
+                    startActivity(intent);
+                }
+            }
+        }, 5000);
     }
     @Override
     public void onBackPressed()

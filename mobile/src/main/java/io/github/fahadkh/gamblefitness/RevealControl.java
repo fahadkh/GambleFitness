@@ -50,12 +50,10 @@ public class RevealControl extends AppCompatActivity
     int pStatus = 0;
     private Handler handler = new Handler();
     private GambleAPIManager apiManager;
-    private boolean dataSent = false;
 
     int gmvpa = 0;
     int goal= 0;
     String announcement = "";
-    private boolean infocollected = false;
 
     Intent intent;
     /**
@@ -74,25 +72,7 @@ public class RevealControl extends AppCompatActivity
 
 
         SessionManager session = new SessionManager(getApplicationContext());
-        dataSent = session.getDataSent();
-      if(!dataSent) {
-           GoogleApiClient mApiClient = new GoogleApiClient.Builder(this)
-                   .addApi(Fitness.HISTORY_API)
-                   .addApi(Fitness.RECORDING_API)
-                   .addScope(new Scope(Scopes.FITNESS_BODY_READ_WRITE))
-                   .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
-                   .addConnectionCallbacks(this)
-                   .enableAutoManage(this, 0, this)
-                   .build();
-
-           apiManager = new GambleAPIManager(mApiClient, this, session.getUserDetails().get("name"));
-           apiManager.initSubscriptions();
-           apiManager.pushGoogleFitDataInBackground();
-           session.setDataSent(true);
-           dataSent = true;
-       }
-
-           String uid = session.getUserDetails().get("name");
+        String uid = session.getUserDetails().get("name");
            String url = "http://murphy.wot.eecs.northwestern.edu/~djd809/mvpaGateway.py?mode=api&request=mvpa&uid=" + uid;
            url += "&post=true&goal=";
            url += Integer.toString(session.getDailyGoal());
@@ -104,9 +84,9 @@ public class RevealControl extends AppCompatActivity
 
         TextView goalline = (TextView) findViewById(R.id.daily_goal);
         goalline.setText("Your goal for today was " + goal + " min.");
-        infocollected = session.getInfoCollect();
 
         generateMVPA(url, session);
+
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -139,7 +119,6 @@ public class RevealControl extends AppCompatActivity
                             generateMVPA(url, session);
                         }
                         else {
-                            session.setInfoCollected(true);
                             gmvpa = mvpa;
                             session.setMVPA(gmvpa);
                             announcement = "Here is how well you did today!";

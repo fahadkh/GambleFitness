@@ -35,9 +35,9 @@ public class SplashScreen extends Activity {
             public void run() {
                 SessionManager session = new SessionManager(getApplicationContext());
 
-                Intent i;
+                Intent i = null;
 
-                if (checkWifiOnAndConnected()) {
+               // if (checkWifiOnAndConnected()) {
 
                     int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
                     if (!session.isLoggedIn()) {
@@ -45,40 +45,26 @@ public class SplashScreen extends Activity {
                         i = new Intent(getApplicationContext(), LoginActivity.class);
                     }
                     else if(!session.getUserType()) {
-                        if (currentHour > 21 || currentHour < 5) {
-                            Log.w(SPLASH, "ControlReveal");
-                            i = new Intent(getApplicationContext(), RevealControl.class);
-                        } else {
+                        if(currentHour > 4 && currentHour < 22){
                             session.setDataSent(false);
-                            session.setInfoCollected(false);
-                            Log.w(SPLASH, "ControlDay");
+                        }
+                           Log.w(SPLASH, "ControlDay");
                            i =  new Intent(getApplicationContext(), ControlUser.class);
-                        }
                     }
-                    else if (currentHour > 21 && currentHour < 25) {
-                        boolean bool = session.getGoalSet();
-                        if (!bool) {
-                            Log.w(SPLASH, "GamePlay");
-                            i = new Intent(getApplicationContext(), GamePage.class);
-                        } else {
-                            Log.w(SPLASH, "GameNight");
-                            i = new Intent(getApplicationContext(), NightMode.class);
-                        }
-                    } else if (currentHour >= 0 && currentHour < 6) {
+                    else if (currentHour >= 0 && currentHour < 6) {
                         Log.w(SPLASH, "GameNight");
                         i = new Intent(getApplicationContext(), NightMode.class);
-                    } else {
+                    }
+                    else {
                         Log.w(SPLASH, "GameDay");
-                        session.setGoalSet(false);
                         i = new Intent(getApplicationContext(), DailyGoal.class);
                     }
+                //}
 
-
-                }
-
-            else{
+           /* else
+                {
                     i = new Intent(getApplicationContext(), wifiMissing.class);
-                }
+                }*/
 
                 startActivity(i);
 

@@ -49,15 +49,14 @@ public class ControlUser extends AppCompatActivity         implements GoogleApiC
         apiManager = new GambleAPIManager(mApiClient, this, session.getUserDetails().get("name"));
         apiManager.initSubscriptions();
 
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        if (currentHour > 21){
-            gotoGame();
-        }
     }
 
-    public void gotoRevealControl(View view) {
-        intent = new Intent(this, RevealControl.class);
-        startActivity(intent);
+    public void gotoReveal(View view) {
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        if (currentHour > 21) {
+            intent = new Intent(this, RevealInterim.class);
+            startActivity(intent);
+        }
     }
 
     public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -66,19 +65,11 @@ public class ControlUser extends AppCompatActivity         implements GoogleApiC
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    public void gotoGame() {
-        intent = new Intent(this, RevealControl.class);
-        startActivity(intent);
-    }
+
 
     @Override
     public void onResume(){
         super.onResume();
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        if (currentHour > 21){
-            gotoGame();
-        }
-
     }
 
     @Override

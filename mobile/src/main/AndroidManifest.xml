@@ -54,6 +54,7 @@
         <activity android:name=".ControlUser" />
         <activity android:name=".MainActivityControl" />
         <activity android:name=".RevealControl" />
+        <activity android:name=".RevealInterim"></activity>
     </application>
 
 </manifest>

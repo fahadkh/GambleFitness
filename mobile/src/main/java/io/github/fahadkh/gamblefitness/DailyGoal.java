@@ -70,15 +70,14 @@ public class DailyGoal extends AppCompatActivity
         apiManager = new GambleAPIManager(mApiClient, this, session.getUserDetails().get("name"));
         apiManager.initSubscriptions();
 
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        if (currentHour > 21){
-            gotoGame();
-        }
     }
 
     public void gotoGame(View view) {
-        intent = new Intent(this, GamePage.class);
-        startActivity(intent);
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        if (currentHour > 21) {
+            intent = new Intent(this, GamePage.class);
+            startActivity(intent);
+        }
     }
 
     public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -91,20 +90,11 @@ public class DailyGoal extends AppCompatActivity
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    public void gotoGame() {
-        intent = new Intent(this, GamePage.class);
-        startActivity(intent);
-    }
-
     @Override
     public void onResume(){
         super.onResume();
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY); //Current hour
-        if (currentHour > 21){
-            gotoGame();
         }
 
-    }
 
     @Override
     public void onBackPressed()
