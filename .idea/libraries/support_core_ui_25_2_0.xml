@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="support-core-ui-25.2.0">
+    <ANNOTATIONS>
+      <root url="jar://$PROJECT_DIR$/mobile/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/b28bda0c3b344a5ff1e6186610974338f685255a/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/b28bda0c3b344a5ff1e6186610974338f685255a/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-core-ui/25.2.0/support-core-ui-25.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
